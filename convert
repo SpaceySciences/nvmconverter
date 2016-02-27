@@ -1,3 +1,30 @@
 #!/usr/bin/python
 
-print 'suh'
+##
+# Author: Caleb Adams
+# Github: github.com/piepieninja
+# Converts the VisualSFM .nvm file type into the
+# OpenSFM .json type
+#
+
+import sys
+
+inputFile = ""
+outputFile = ""
+
+nvmVersion = ""
+
+if (len(sys.argv) > 1):
+    inputFile = sys.argv[1]
+else:
+    print "USAGE: \n> ./convert input.nvm\n> ./convert input.nvm output.json"
+    sys.exit(0)
+
+# read in the file!
+with open(inputFile) as f:
+    for line in f:
+        print line
+        if (nvmVersion == ""): # assumes the file starts with the nvm version
+            nvmVersion = line
+
+print "Version: " + nvmVersion
