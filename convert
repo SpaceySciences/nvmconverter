@@ -8,6 +8,7 @@
 #
 
 import sys
+import json
 
 inputFile = ""
 outputFile = ""
@@ -25,6 +26,8 @@ cameraFileList = []
 pointsXYZList = []
 pointsRGBList = []
 imageIndexList = []
+
+converted_json = []
 
 if (len(sys.argv) > 1):
     inputFile = sys.argv[1]
@@ -73,4 +76,25 @@ with open(inputFile) as f:
         elif (expectMeasurements):
             imageIndexList.append(line[0:line.find(' ')])
 
+print "============================>"
 print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points) + "\nXYZ List: " + str(pointsXYZList) + "\nRGB List: " + str(pointsRGBList) + "\nMeasurements: " + str(measurements) + "\nImage Index List: " + str(imageIndexList)
+print "============================>"
+
+# build json here:
+
+cameras_json = []
+shots_json = []
+points_json = []
+
+    
+
+for x in range(0,points):
+    str_x = "\"" + str(x) + "\": "
+    points_json.append(str_x + str({"color": pointsRGBList[x], "reprojection_error": 0.0, "coordinates": pointsXYZList[x]}))
+points_str = str(points_json)[2:len(str(points_json)) - 2]
+points_str = points_str.replace("\'\"", "\"")
+points_str = points_str.replace("\\\'", "\"")
+points_str = points_str.replace("}\',", "},\n")
+points_str = "\"points\": {\n" + points_str + "\n}"
+
+print "json: \n" + points_str
