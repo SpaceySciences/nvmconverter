@@ -20,7 +20,8 @@ cameras = 0
 points = 0
 
 cameraFileList = []
-
+pointsXYZList = []
+pointsRGBList = []
 
 if (len(sys.argv) > 1):
     inputFile = sys.argv[1]
@@ -37,15 +38,29 @@ with open(inputFile) as f:
         elif (line == '\n'):
             expectValue = True
             expectCameras = False
+            expectPoints = False
         elif (cameras == 0 and expectValue):
             expectValue = False
             expectCameras = True
             cameras = int(line)
-        elif (expectCameras): 
+        elif (expectCameras): # Do all camera stuff here
             cameraFileList.append(line[0:line.find(' ')]) # get each camera file location and store it
         elif (points == 0 and expectValue):
             expectValue = False
             expectPoints = True
             points = int(line)
+        elif (expectPoints): # Do all point stuff here
+            xyz_list = [0.0,0.0,0.0]
+            rgb_list = [0.0,0.0,0.0]
+            for x in range(0,6):
+                p = line.find(' ')
+                temp = float(line[0:p])
+                line = line[p+1:]
+                if (x < 3):
+                    xyz_list[x] = temp
+                else:
+                    rgb_list[x-3] = int(temp)
+            pointsXYZList.append(xyz_list)
+            pointsRGBList.append(rgb_list)
 
-print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points)
+print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points) + "\nXYZ List: " + str(pointsXYZList) + "\nRGB List: " + str(pointsRGBList) 
