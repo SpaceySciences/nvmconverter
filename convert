@@ -13,6 +13,9 @@ inputFile = ""
 outputFile = ""
 
 nvmVersion = ""
+cameras = 0
+
+expectValue = False
 
 if (len(sys.argv) > 1):
     inputFile = sys.argv[1]
@@ -23,8 +26,14 @@ else:
 # read in the file!
 with open(inputFile) as f:
     for line in f:
-        print line
+        #print line
         if (nvmVersion == ""): # assumes the file starts with the nvm version
-            nvmVersion = line
+            nvmVersion = line.rstrip('\n')
+        elif (line == '\n'):
+            expectValue = True
+        elif (cameras == 0 and expectValue):
+            expectValue = False
+            cameras = int(line)
 
-print "Version: " + nvmVersion
+
+print "Version: " + nvmVersion + "\nCameras: " + str(cameras)
