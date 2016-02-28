@@ -13,6 +13,8 @@ import json
 inputFile = ""
 outputFile = ""
 
+verbose = False
+
 expectValue = False
 expectCameras = False
 expectPoints = False
@@ -27,8 +29,20 @@ pointsXYZList = []
 pointsRGBList = []
 imageIndexList = []
 
-if (len(sys.argv) > 1):
+if (len(sys.argv) == 2):
     inputFile = sys.argv[1]
+elif (len(sys.argv) == 3):
+    if (sys.argv[1] == "-v"): # TODO expand arg options
+        verbose = True
+        inputFile = sys.argv[2]
+    else:
+        inputFile = sys.argv[1]
+        outputFile = sys.argv[2]
+elif (len(sys.argv) == 4):
+    if (sys.argv[1] == "-v"): # TODO expand arg options
+        verbose = True
+    inputFile = sys.argv[2]
+    outputFile = sys.argv[3]
 else:
     print "USAGE: \n> ./convert input.nvm\n> ./convert input.nvm output.json"
     sys.exit(0)
@@ -74,9 +88,10 @@ with open(inputFile) as f:
         elif (expectMeasurements):
             imageIndexList.append(line[0:line.find(' ')])
 
-print "============================>"
-print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points) + "\nXYZ List: " + str(pointsXYZList) + "\nRGB List: " + str(pointsRGBList) + "\nMeasurements: " + str(measurements) + "\nImage Index List: " + str(imageIndexList)
-print "============================>"
+if (verbose):
+    print "============================>"
+    print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points) + "\nXYZ List: " + str(pointsXYZList) + "\nRGB List: " + str(pointsRGBList) + "\nMeasurements: " + str(measurements) + "\nImage Index List: " + str(imageIndexList)
+    print "============================>"
 
 # build json here:
 cameras_json = []
@@ -113,4 +128,14 @@ points_str = "\"points\": {\n" + points_str + "\n}"
 # construct the final string
 json_str = "[{" + camera_str + "," + shots_str + "," + points_str + "}]"
 
-print "json: \n" + json_str
+if (verbose):
+    print "json: \n" + json_str
+
+# output the string to a file
+if (outputFile == ""):
+    json_file = open(inputFile + ".json", "w")
+else:
+    json_file = open(outputFile, "w")
+
+json_file.write(json_str)
+json_file.close()
