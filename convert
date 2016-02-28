@@ -27,8 +27,6 @@ pointsXYZList = []
 pointsRGBList = []
 imageIndexList = []
 
-converted_json = []
-
 if (len(sys.argv) > 1):
     inputFile = sys.argv[1]
 else:
@@ -81,15 +79,30 @@ print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File L
 print "============================>"
 
 # build json here:
-
 cameras_json = []
 shots_json = []
 points_json = []
 
-    
+# TODO detect camera data
+camera_str = "\"cameras\": {\n}"
 
+# TODO detect more shots data
+for x in range(0, cameras + measurements):
+    str_x = ""
+    if (x < cameras):
+        str_x = str(cameraFileList[x])
+    else:
+        str_x = str(imageIndexList[x-cameras])
+    shots_json.append("\"" + str_x + "\":{}")
+shots_str = str(shots_json)[2:len(str(shots_json)) - 2]
+shots_str = shots_str.replace("\'\"", "\"")
+shots_str = shots_str.replace("\\\'", "\"")
+shots_str = shots_str.replace("}\',", "},\n")
+shots_str = "\"shots\": {\n" + shots_str + "\n}"
+
+# TODO detect more point data
 for x in range(0,points):
-    str_x = "\"" + str(x) + "\": "
+    str_x = "\"" + str(x+1) + "\": " # add 1 so we don't have to index image count at 0
     points_json.append(str_x + str({"color": pointsRGBList[x], "reprojection_error": 0.0, "coordinates": pointsXYZList[x]}))
 points_str = str(points_json)[2:len(str(points_json)) - 2]
 points_str = points_str.replace("\'\"", "\"")
@@ -97,4 +110,7 @@ points_str = points_str.replace("\\\'", "\"")
 points_str = points_str.replace("}\',", "},\n")
 points_str = "\"points\": {\n" + points_str + "\n}"
 
-print "json: \n" + points_str
+# construct the final string
+json_str = "[{" + camera_str + "," + shots_str + "," + points_str + "}]"
+
+print "json: \n" + json_str
