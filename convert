@@ -12,10 +12,15 @@ import sys
 inputFile = ""
 outputFile = ""
 
+expectValue = False
+expectCameras = False
+expectPoints = False
 nvmVersion = ""
 cameras = 0
+points = 0
 
-expectValue = False
+cameraFileList = []
+
 
 if (len(sys.argv) > 1):
     inputFile = sys.argv[1]
@@ -31,9 +36,16 @@ with open(inputFile) as f:
             nvmVersion = line.rstrip('\n')
         elif (line == '\n'):
             expectValue = True
+            expectCameras = False
         elif (cameras == 0 and expectValue):
             expectValue = False
+            expectCameras = True
             cameras = int(line)
+        elif (expectCameras): 
+            cameraFileList.append(line[0:line.find(' ')]) # get each camera file location and store it
+        elif (points == 0 and expectValue):
+            expectValue = False
+            expectPoints = True
+            points = int(line)
 
-
-print "Version: " + nvmVersion + "\nCameras: " + str(cameras)
+print "Version: " + nvmVersion + "\nCameras: " + str(cameras) + "\nCamera File List: " + str(cameraFileList) + "\nPoints: " + str(points)
