@@ -13,8 +13,10 @@ import json
 inputFile = ""
 outputFile = ""
 
+# TODO argument bools to be added here
 verbose = False
 
+# setting up variables
 expectValue = False
 expectCameras = False
 expectPoints = False
@@ -29,64 +31,67 @@ pointsXYZList = []
 pointsRGBList = []
 imageIndexList = []
 
-if (len(sys.argv) == 2):
+if (len(sys.argv) == 2): # not verbose, no specified output
     inputFile = sys.argv[1]
-elif (len(sys.argv) == 3):
-    if (sys.argv[1] == "-v"): # TODO expand arg options
+elif (len(sys.argv) == 3): # TODO expand arg options
+    if (sys.argv[1] == "-v"): # yes verbose, no specified output
         verbose = True
         inputFile = sys.argv[2]
-    else:
+    else: # not verbose, yes specified output
         inputFile = sys.argv[1]
         outputFile = sys.argv[2]
-elif (len(sys.argv) == 4):
-    if (sys.argv[1] == "-v"): # TODO expand arg options
+elif (len(sys.argv) == 4): # TODO expand arg options
+    if (sys.argv[1] == "-v"): # yes verbose, yes specified output
         verbose = True
     inputFile = sys.argv[2]
     outputFile = sys.argv[3]
-else:
+else: # letting user know how to structure command input
     print "USAGE: \n> ./convert input.nvm\n> ./convert input.nvm output.json"
     sys.exit(0)
 
-# read in the file!
+# extract and partition information from the nvm file
 with open(inputFile) as f:
     for line in f:
         #print line
         if (nvmVersion == ""): # assumes the file starts with the nvm version
             nvmVersion = line.rstrip('\n')
-        elif (line == '\n'):
-            expectValue = True
-            expectCameras = False
-            expectPoints = False
-            expectMeasurements = False
-        elif (cameras == 0 and expectValue):
-            expectValue = False
-            expectCameras = True
-            cameras = int(line)
-        elif (expectCameras): # Do all camera stuff here
+        elif (line == '\n'): # a new data stream type is to come
+            expectValue = True # new data stream type on next line
+            expectCameras = False # don't know if cameras are next
+            expectPoints = False # don't know if points are next
+            expectMeasurements = False # don't know if measurements are next
+        elif (cameras == 0 and expectValue): # first time getting to cameras
+            expectValue = False # reading in only cameras until finished
+            expectCameras = True # reading in only cameras until finished
+            cameras = int(line) # extracting number of cameras
+        elif (expectCameras): # reading in cameras info
             cameraFileList.append(line[0:line.find(' ')]) # get each camera file location and store it
-        elif (points == 0 and expectValue):
-            expectValue = False
-            expectPoints = True
-            points = int(line)
-        elif (expectPoints): # Do all point stuff here
+            # This looks like it ignores the rest of the line?
+        elif (points == 0 and expectValue): # reading in points starting with the next line
+            expectValue = False # reading in only points unti lfinished
+            expectPoints = True # next 
+            points = int(line) # extracting number of cameras
+        elif (expectPoints): # extracting point information here, but skipping <number of measurements> and <List of Measurements>
             xyz_list = [0.0,0.0,0.0]
             rgb_list = [0.0,0.0,0.0]
-            for x in range(0,6):
-                p = line.find(' ')
-                temp = float(line[0:p])
-                line = line[p+1:]
-                if (x < 3):
+            for x in range(0,6): # why is this skipping <number of measurements> <List of Measurements> ?
+                p = line.find(' ') # index after next xyz or rgb componenet
+                temp = float(line[0:p]) # saving the current xyz or rgb component
+                line = line[p+1:] # removing just gottten xyz or rgb component
+                if (x < 3): # appending xz components
                     xyz_list[x] = temp
-                else:
+                else: # appending rbg components
                     rgb_list[x-3] = int(temp)
-            pointsXYZList.append(xyz_list)
-            pointsRGBList.append(rgb_list)
-        elif (measurements == 0 and expectValue):
+            pointsXYZList.append(xyz_list) # adding xyz componenets of current point to big list
+            pointsRGBList.append(rgb_list) # adding rgb components of current point to big list
+        elif (measurements == 0 and expectValue): # it looks like this never happens?
             expectValue = False
             expectMeasurements = True
-            measurements = int(line)
-        elif (expectMeasurements):
-            imageIndexList.append(line[0:line.find(' ')])
+            measurements = int(line) # what are we measuring? half of the nvm file is left out of the json file
+        elif (expectMeasurements):  # again, it looks like this never happens
+            imageIndexList.append(line[0:line.find(' ')]) # there isn't any information going into this
+
+# finished extracting from nvm file            
 
 if (verbose):
     print "============================>"
@@ -94,8 +99,8 @@ if (verbose):
     print "============================>"
 
 # build json here:
-cameras_json = []
-shots_json = []
+cameras_json = [] # this program currently treats cameras and shots as the same thing
+shots_json = [] # this program currently treats cameras and shots as the same thing
 points_json = []
 
 # TODO detect camera data
@@ -104,12 +109,13 @@ camera_str = "\"cameras\": {\n}"
 # TODO detect more shots data
 for x in range(0, cameras + measurements):
     str_x = ""
-    if (x < cameras):
+    if (x < cameras): # adding cameras to json file
         str_x = str(cameraFileList[x])
-    else:
+    else: # adding images to json file
         str_x = str(imageIndexList[x-cameras])
-    shots_json.append("\"" + str_x + "\":{}")
+    shots_json.append("\"" + str_x + "\":{}") # why are we appending shots? shouldn't cameras to into cameras, and images go into shots?
 shots_str = str(shots_json)[2:len(str(shots_json)) - 2]
+# making the output readable
 shots_str = shots_str.replace("\'\"", "\"")
 shots_str = shots_str.replace("\\\'", "\"")
 shots_str = shots_str.replace("}\',", "},\n")
@@ -120,6 +126,7 @@ for x in range(0,points):
     str_x = "\"" + str(x+1) + "\": " # add 1 so we don't have to index image count at 0
     points_json.append(str_x + str({"color": pointsRGBList[x], "reprojection_error": 0.0, "coordinates": pointsXYZList[x]}))
 points_str = str(points_json)[2:len(str(points_json)) - 2]
+# making the output readable
 points_str = points_str.replace("\'\"", "\"")
 points_str = points_str.replace("\\\'", "\"")
 points_str = points_str.replace("}\',", "},\n")
@@ -132,9 +139,9 @@ if (verbose):
     print "json: \n" + json_str
 
 # output the string to a file
-if (outputFile == ""):
+if (outputFile == ""): # no specified output
     json_file = open(inputFile + ".json", "w")
-else:
+else: # yes specified output
     json_file = open(outputFile, "w")
 
 json_file.write(json_str)
