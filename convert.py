@@ -54,7 +54,16 @@ outputFile = ""
 verbose = False
 
 #variables for parsing nvm
+numCamerasTotal = 0
 numFullModels = 0
+
+#sets to be parsed into
+cameraFileListImages = [] # <File Name> --> one string
+cameraFileListFocalLength = [] # <focal length> --> one integer
+cameraFileListQuaternionWXYZ = [] # <quaternion WXYZ> --> four floats
+cameraFileListCameraCenter = [] # <camera center> --> three floats
+cameraFileListRadialDistortion = [] # <radial distortion> --> one int
+#there is a zero after each camera
 
 #accept arguments
 if (len(sys.argv) == 2): # no argument, no specified output
@@ -84,7 +93,8 @@ with open(inputFile) as f:
 	#read through any starting blank or comment lines
 	line = ""
 	while True:
-		line = f.readline().strip()
+		line = f.readline()
+		line = line.rstrip()
 		if (not len(line) == 0 and not line.startswith('#')) :
 			break
 
@@ -102,26 +112,59 @@ with open(inputFile) as f:
 
 	#read through any blank or comment lines
 	while True:
-		line = f.readline().strip()
+		line = f.readline()
+		line = line.rstrip()
 		if (not len(line) == 0 and not line.startswith('#')):
 			break	
 
-	input("About to read models...")
 	#read in full (have 3d points) and empty (no 3d points) models
 		#read in number of cameras
-	numCameras = 2
-	print numCameras
-	input("Indents are bad")
-		#numCameras = int(line)
-		#print "numCameras is: " + line
+	numCameras = int(line[0:])
+	line = line[line.find(' ')+1:]
+	numCamerasTotal += numCameras
+	print "numCameras is: " + str(numCameras)
 		#read in list of cameras
+	for x in range(numCameras): # reading in however many cameras are in this model
+		line = f.readline()
+		line = line.rstrip()
 			#read in file name
+		print "remaining line is: " + line
+		cameraFileListImages.append(line[0:line.find(' ')]) # get each camera file location and store it
+		print "cameraFileListImages[" + str(x) + "] is: " + cameraFileListImages[x]
+		line = line[line.find(' ')+1:] # removing filename from temp reading line
+		line = line.strip()
+		print "remaining line is: " + line
+		#input()
 			#read in camera attributes
-				#read in focal length
-				#read in quaternion <WXYZ>
-				#read in camera center <XYZ>
-				#read in radial distortion
-				#read in 0 to end camera attributes
+			 	#read in focal length
+		cameraFileListFocalLength.append(line[0:line.find(' ')]) # <focal length> --> one integer
+		print "cameraFileListFocalLength[" + str(x) + "] is: " + cameraFileListFocalLength[x]
+		line = line[line.find(' ')+1:] # removing focal length from temp reading line
+		print "remaining line is: " + line
+		#input()
+		# 	#read in quaternion <WXYZ>
+		# quatWXYZ_list = ["", "", "", ""] # <quaternion <WXYZ> --> four floats
+		# for y in range(0:4):
+		# 	quatWXYZ_list[y] = line[0:line.find(' ')
+		# 	print "quatWXYZ_list[" + y + "] is: " + quatWXYZ_list[y]
+		# 	line = line[line.find(' ')+1:]
+		# 	print "remaining line is: " + line
+		# 	#read in camera center <XYZ>
+		# cameraFileListQuaternionWXYZ.append(quatWXYZ_list)
+		# centerXYZ_list = ["", "", ""] # <camera center> --> three floats
+		# for y in range(0:3):
+		# 	centerXYZ_list[y] = line[0:line.find(' ')]
+		# 	print "centerXYZ_list[" + y + "] is: " + centerXYZ_list[]
+		# 	line = line[line.find(' ')+1:]
+		# 	print "remaining list is: " + line
+		# cameraFileListCameraCenter.append(centerXYZ_list)
+		# 	#read in radial distortion
+		# cameraFileListRadialDistortion.append(line[0:line.find(' ')]) # <radial distortion> --> one int
+		# print "cameraFileListRadialDistortion[" + x + "] is: " cameraFileListRadialDistortion[x]
+		# 	#there is a zero after each camera
+
+
+
 		#read in number of 3d points
 		#read in 3d points
 			#read in point attributes
