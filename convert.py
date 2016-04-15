@@ -124,7 +124,8 @@ with open(inputFile) as f:
 	numCamerasTotal += numCameras
 	print "numCameras is: " + str(numCameras)
 		#read in list of cameras
-	for x in range(numCameras): # reading in however many cameras are in this model
+	x = 0
+	while x < numCameras: # reading in however many cameras are in this model
 		line = f.readline()
 		line = line.rstrip()
 			#read in file name
@@ -142,13 +143,16 @@ with open(inputFile) as f:
 		line = line[line.find(' ')+1:] # removing focal length from temp reading line
 		print "remaining line is: " + line
 		#input()
-		# 	#read in quaternion <WXYZ>
-		# quatWXYZ_list = ["", "", "", ""] # <quaternion <WXYZ> --> four floats
-		# for y in range(0:4):
-		# 	quatWXYZ_list[y] = line[0:line.find(' ')
-		# 	print "quatWXYZ_list[" + y + "] is: " + quatWXYZ_list[y]
-		# 	line = line[line.find(' ')+1:]
-		# 	print "remaining line is: " + line
+		 		#read in quaternion <WXYZ>
+		quatWXYZ_list = [" ", " ", " ", " "] # <quaternion <WXYZ> --> four floats
+		y = 0
+		while y < 4:
+			quatWXYZ_list[y] = line[0:line.find(' ')]
+			print "quatWXYZ_list[" + str(y) + "] is: " + quatWXYZ_list[y]
+			line = line[line.find(' ')+1:]
+			print "remaining line is: " + line
+			y += 1
+		input() 
 		# 	#read in camera center <XYZ>
 		# cameraFileListQuaternionWXYZ.append(quatWXYZ_list)
 		# centerXYZ_list = ["", "", ""] # <camera center> --> three floats
@@ -162,7 +166,8 @@ with open(inputFile) as f:
 		# cameraFileListRadialDistortion.append(line[0:line.find(' ')]) # <radial distortion> --> one int
 		# print "cameraFileListRadialDistortion[" + x + "] is: " cameraFileListRadialDistortion[x]
 		# 	#there is a zero after each camera
-
+		x += 1
+	#end of while x
 
 
 		#read in number of 3d points
