@@ -54,6 +54,7 @@ outputFile = ""
 verbose = False
 
 #variables for parsing nvm
+numFullModels = 0
 
 #accept arguments
 if (len(sys.argv) == 2): # no argument, no specified output
@@ -83,8 +84,8 @@ with open(inputFile) as f:
 	#read through any starting blank or comment lines
 	line = ""
 	while True:
-		line = f.next()
-		if (not (line == '\n' or line.startswith('#')) ):
+		line = f.readline().strip()
+		if (not len(line) == 0 and not line.startswith('#')) :
 			break
 
 	#read in version (don't know how version will change input yet)
@@ -96,17 +97,23 @@ with open(inputFile) as f:
 	if (not (line.find('#') == -1)): #ignore comments
 		nvmCalibration = line[line.find(' '):line.find('#')] 
 	else:
-		nvmCalibration = line[line.find(' '):len(line)-1]
+		nvmCalibration = line[line.find(' '):len(line)]
 	print "nvmCalibration is: " + nvmCalibration
 
 	#read through any blank or comment lines
 	while True:
-		line = f.next()
-		if (not (line == '\n' or line.startswith('#')) ):
+		line = f.readline().strip()
+		if (not len(line) == 0 and not line.startswith('#')):
 			break	
 
+	input("About to read models...")
 	#read in full (have 3d points) and empty (no 3d points) models
 		#read in number of cameras
+	numCameras = 2
+	print numCameras
+	input("Indents are bad")
+		#numCameras = int(line)
+		#print "numCameras is: " + line
 		#read in list of cameras
 			#read in file name
 			#read in camera attributes
