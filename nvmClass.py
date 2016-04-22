@@ -36,24 +36,49 @@
 #nvmObject, which contains an array of models, the number of full models, the number of empty models, the total
 #number of models, an array of PLY files, and the number of PLY files
 
+import sys
+
 class NvmObject:
-	modelArray = []
-	numFullModels = 0
-	numEmptyModels = 0
-	numTotalModels = 0
-	plyArray = []
-	numPlyFiles = 0
+	def __init__(self):
+		#variables for nvm manipulation
+		self.nvmVersion = ""
+		self.nvmCalibration = ""
+		self.numCamerasTotal = 0
+		self.numPointsTotal = 0
+		self.modelArray = []
+		self.numFullModels = 0
+		self.numEmptyModels = 0
+		self.numTotalModels = 0
+		self.plyArray = []
+		self.numPlyFiles = 0
 
-#argument bool list goes here
-verbose = False
-testing = False
+class ModelObject:
+	def __init__(self):
+		self.numCameras = 0
+		self.cameraArray = [] # array of CameraObject s
+		self.numPoints = 0
+		self.pointArray = [] # array of PointObject s
 
-#variables for parsing nvm
-numCamerasTotal = 0
-numPointsTotal = 0
-numFullModels = 0
-numEmptyModels = 0
-numModelsTotal = 0
+class CameraObject:
+	def __init__(self):
+		self.fileName = ""
+		self.focalLength = ""
+		self.quaternionArray = ["", "", "", ""]
+		self.cameraCenter = ["", "", ""]
+		self.radialDistortion = ""
+
+class PointObject:
+	def __init__(self):
+		self.xyzArray = ["", "", ""]
+		self.rgbArray = ["", "", ""]
+		self.numMeasurements = 0
+		self.measurementArray = [] # array of PointMeasurementObject s
+
+class PointMeasurementObject:
+	def __init__(self):
+		self.imageIndex = ""
+		self.featureIndex = ""
+		self.xyArray = ["", ""]
 
 #sets to be parsed into
 cameraFileListImages = [] # <File Name> --> one string
@@ -67,35 +92,26 @@ pointsXYZList = [] # <XYZ> --> three floats
 pointsRGBList = [] # <RBG> --> three ints
 pointsMeasurementsList = [] # multiple { <Image index> <Feature Index> <xy> } per item here
 
-nvmVersion = ""
-nvmCalibration = ""
+#read through any blank or commented lines
+def skipBlankLines(f):
+	line = ""
+	while True:
+		line = f.readline()
+		line = line.rstrip()
+		if (not (line.find('#') == -1)):
+			line = line[0:line.find('#')]
+		if (not len(line) == 0) :
+			break
+	return line
 
-def parseNVM(inputFile, verboseBool, testingBool):
-	global verbose
-	global testing
-	global nvmVersion
-	global nvmCalibration
-
-	vebose = verboseBool
-	testing = testingBool
+# functions for nvm manipulation
+def parseNVM(inputFile):
+	nvmObject = NvmObject()
 
 	#extracting and parsing info from nvm file
 	with open(inputFile) as f:
-		line = skipBlankLines(f)
-
-		#read in version (don't know how version will change input yet)
-		nvmVersion = line[0:line.find(' ')] #getting just the version, no calibration
-		if testing: print "nvmVersion is: " + nvmVersion
-
-		#version can be followed by calibration
-			#calibration command in file reads `FixedK fx cx fy cy'
-		if (not (line.find('#') == -1)): #ignore comments
-			nvmCalibration = line[line.find(' '):line.find('#')] 
-		else:
-			nvmCalibration = line[line.find(' '):len(line)]
-		if testing: print "nvmCalibration is: " + nvmCalibration
-
-		parseModels(f)
+		parseVersion(f, nvmObject)
+		parseModels(f, nvmObject)
 
 		#read in comments for the PLY section
 
@@ -103,46 +119,42 @@ def parseNVM(inputFile, verboseBool, testingBool):
 
 		#read in list of indices of models that have associated PLY
 
+def parseVersion(f, nvmObject):
+	line = skipBlankLines(f)
+	#read in version (don't know how version will change input yet)
+	if (not (line.find(' ') == -1)):
+		nvmObject.nvmVersion = line[0:line.find(' ')] #getting just the version, no calibration
+		#calibration command in file read 'FixedK fx cx fy cy'
+		nvmObject.nvmCalibration = line[len(nvmObject.nvmVersion):]
+	else:
+		nvmObject.nvmVersion = line
+	print "nvmVersion is: " + nvmObject.nvmVersion
+	print "nvmCalibration is: " + nvmObject.nvmCalibration
 
-#read through any blank or commented lines
-def skipBlankLines(f):
-	line = ""
-	while True:
-		line = f.readline()
-		line = line.rstrip()
-		if (not len(line) == 0 and not line.startswith('#')) :
-			break
-	return line
-
-def parseModels(f):
-	global verbose
-	global testing
-	global numModelsTotal
-	global numCameras
-	global numCamerasTotal
-	global numPoints
-	global numPointsTotal
-	global numFullModels
-	global numEmptyModels
-
+def parseModels(f, nvmObject):
 	#loop through models
 	while True:
-		#read through any blank or comment lines
-		line = skipBlankLines(f)
-		#stop reading models if input is just "0"
-		if line[0] == "0":
-			break
-		numModelsTotal += 1
-		#read in full (have 3d points) and empty (no 3d points) models
-		numCameras = int(line[0:]) # read in number of cameras
-		numCamerasTotal += numCameras
-		if testing: print "numCameras is: " + str(numCameras)
+		line = skipBlankLines(f) # read through any blank or comment lines
+
+		if line[0] == '0': break # stop reading models if input is just "0"
+
+		# read in the model
+		modelObject = ModelObject() # has numCameras, cameraArray, numPoints, pointArray
+		nvmObject.numTotalModels += 1
+
+		print line
+		#read in full models (have 3d points) and empty models (no 3d points)
+		modelObject.numCameras = int(line[0:]) # read in number of cameras
+		nvmObject.numCamerasTotal += modelObject.numCameras
+		print "numCameras is: " + str(modelObject.numCameras)
 
 		# read in list of cameras
-		parseCameras(f)
+		parseCameras(f, modelObject)
+		z = raw_input()
+		sys.exit(0)
 
 		line = skipBlankLines(f)
-		if testing: print "remaining line is: " + line
+		print "remaining line is: " + line
 
 		numPoints = int(line[0:]) # read in number of 3D points
 		numPointsTotal += numPoints
@@ -160,59 +172,53 @@ def parseModels(f):
 	#end of while reading through models
 		z = raw_input("Finished reading through ALL models! ")
 
-def parseCameras(f):
-	global verbose
-	global testing
-	global cameraFileListImages
-	global cameraFileListFocalLength
-	global cameraFileListQuaternionWXYZ
-	global cameraFileListCameraCenterglobal 
-	global cameraFileListRadialDistortion
-
+def parseCameras(f, modelObject):
+	# modelObject has numCameras, cameraArray, numPoints, pointArray
 	x = 0
-	while x < numCameras: # reading in however many cameras are in this model
+	while x < modelObject.numCameras: # reading in however many cameras are in this model
+		cameraObj = CameraObject() # has fileName, focalLength, quaternionArray, cameraCenter, radialDistortion
+		modelObject.cameraArray.append(cameraObj)
+
 		line = f.readline()
 		line = line.rstrip()
-		if (len(line) == 0 or line.startswith('#')): # skipping any blank or commented lines
-			continue
-			#read in file name
-		if testing: print "remaining line is: " + line
-		cameraFileListImages.append(line[0:line.find(' ')]) # get each camera file location and store it
-		if testing: print "cameraFileListImages[" + str(x) + "] is: " + cameraFileListImages[x]
+		if (len(line) == 0 or line.startswith('#')): continue # skipping any blank or commented lines
+		
+		#read in file name
+		print "remaining line is: " + line
+		cameraObj.fileName = line[0:line.find(' ')] # get each camera file location and store it
+		print "cameraObj.filname " + str(x) + " is: " + cameraObj.fileName
 		line = line[line.find(' ')+1:] # removing filename from temp reading line
 		line = line.strip()
-		if testing: print "remaining line is: " + line
-			#read in camera attributes
-			 	#read in focal length
-		cameraFileListFocalLength.append(line[0:line.find(' ')]) # <focal length> --> one integer
-		if testing: print "cameraFileListFocalLength[" + str(x) + "] is: " + cameraFileListFocalLength[x]
+
+		#read in focal length
+		cameraObj.focalLength = line[0:line.find(' ')] # <focal length> --> one integer
+		print "cameraObj.focalLength " + str(x) + " is: " + cameraObj.focalLength
 		line = line[line.find(' ')+1:] # removing focal length from temp reading line
-		if testing: print "remaining line is: " + line
-		 		#read in quaternion <WXYZ>
-		quatWXYZ_list = ["", "", "", " "] # <quaternion <WXYZ> --> four floats
+		
+		#read in quaternion <WXYZ>
 		y = 0
 		while y < 4:
-			quatWXYZ_list[y] = line[0:line.find(' ')]
-			if testing: print "quatWXYZ_list[" + str(y) + "] is: " + quatWXYZ_list[y]
+			cameraObj.append(line[0:line.find(' ')])
+			print "cameraObj.quaternionArray[" + str(y) + "] is: " + cameraObj.quaternionArray[y]
 			line = line[line.find(' ')+1:]
-			if testing: print "remaining line is: " + line
+			print "remaining line is: " + line
 			y += 1
-		cameraFileListQuaternionWXYZ.append(quatWXYZ_list)
-		 	#read in camera center <XYZ>
-		centerXYZ_list = ["", "", ""] # <camera center> --> three floats
+		
+		#read in camera center <XYZ>
 		y = 0
 		while y < 3:
-		 	centerXYZ_list[y] = line[0:line.find(' ')]
-		 	if testing: print "centerXYZ_list[" + str(y) + "] is: " + centerXYZ_list[y]
+		 	cameraObj.cameraCenter.append(line[0:line.find(' ')])
+		 	print "cameraObj.cameraCenter[" + str(y) + "] is: " + cameraObj.cameraCenter[y]
 		 	line = line[line.find(' ')+1:]
-		 	if testing: print "remaining line is: " + line
+		 	print "remaining line is: " + line
 		 	y += 1
-		cameraFileListCameraCenter.append(centerXYZ_list)
-		 	#read in radial distortion
-		cameraFileListRadialDistortion.append(line[0:line.find(' ')]) # <radial distortion> --> one int
-		if testing: print "cameraFileListRadialDistortion[" + str(x) + "] is: " + cameraFileListRadialDistortion[x]
+		
+		#read in radial distortion
+		cameraObj.radialDistortion = line[0:line.find(' ')] # <radial distortion> --> one int
+		print "cameraObj.radialDistortion " + str(x) + " is: " + cameraObj.radialDistortion
 		#z = raw_input()
-			#there is a zero after each camera
+		
+		#there is a zero after each camera, so don't worry about the rest of the line
 		x += 1
 	#end of while x
 

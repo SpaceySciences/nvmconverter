@@ -48,4 +48,4 @@ else: # no correct input syntax
 
 if inputFile.endswith(".nvm"):
 	from nvmClass import *
-	parseNVM(inputFile, verbose, testing)
+	parseNVM(inputFile)
