@@ -118,6 +118,7 @@ def parseNVM(inputFile):
 		#read in int for number of PLY files
 
 		#read in list of indices of models that have associated PLY
+	return nvmObject
 
 def parseVersion(f, nvmObject):
 	line = skipBlankLines(f)
@@ -128,49 +129,33 @@ def parseVersion(f, nvmObject):
 		nvmObject.nvmCalibration = line[len(nvmObject.nvmVersion):]
 	else:
 		nvmObject.nvmVersion = line
-	print "nvmVersion is: " + nvmObject.nvmVersion
-	print "nvmCalibration is: " + nvmObject.nvmCalibration
 
 def parseModels(f, nvmObject):
+	# nvmObject has nvmVersion, nvmCalibration, numCamerasTotal, numPointsTotal, modelArray,
+		# numFullModels, numEmptyModels, numTotalModels, plyArray, numPlyFiles
+
 	#loop through models
 	while True:
 		line = skipBlankLines(f) # read through any blank or comment lines
 
 		if line[0] == '0': break # stop reading models if input is just "0"
 
-		# read in the model
+		# gather model data
 		modelObject = ModelObject() # has numCameras, cameraArray, numPoints, pointArray
 		nvmObject.numTotalModels += 1
-
-		print line
-		#read in full models (have 3d points) and empty models (no 3d points)
 		modelObject.numCameras = int(line[0:]) # read in number of cameras
 		nvmObject.numCamerasTotal += modelObject.numCameras
-		print "numCameras is: " + str(modelObject.numCameras)
-
-		# read in list of cameras
-		parseCameras(f, modelObject)
-		z = raw_input()
-		sys.exit(0)
+		parseCameras(f, modelObject) # read in list of cameras
 
 		line = skipBlankLines(f)
-		print "remaining line is: " + line
-
-		numPoints = int(line[0:]) # read in number of 3D points
-		numPointsTotal += numPoints
-
-		# incrementing proper variables
-		if numPoints > 0: numFullModels += 1
-		else: numEmptyModels += 1
-
-		if testing: print "numPoints is: " + str(numPoints)
-
-		#read in 3d point attributes
-		parsePoints(f)
+		modelObject.numPoints = int(line[0:]) # read in number of 3D points
+		nvmObject.numPointsTotal += modelObject.numPoints
+		if modelObject.numPoints > 0: nvmObject.numFullModels += 1
+		else: nvmObject.numEmptyModels += 1
+		#parsePoints(f, modelObject) # read in 3D point attributes
 		
-		#z = raw_input("\nFinished reading through a model...\n")
-	#end of while reading through models
 		z = raw_input("Finished reading through ALL models! ")
+	# end of while reading through all models
 
 def parseCameras(f, modelObject):
 	# modelObject has numCameras, cameraArray, numPoints, pointArray
@@ -198,19 +183,17 @@ def parseCameras(f, modelObject):
 		#read in quaternion <WXYZ>
 		y = 0
 		while y < 4:
-			cameraObj.append(line[0:line.find(' ')])
+			cameraObj.quaternionArray[y] = line[0:line.find(' ')]
 			print "cameraObj.quaternionArray[" + str(y) + "] is: " + cameraObj.quaternionArray[y]
 			line = line[line.find(' ')+1:]
-			print "remaining line is: " + line
 			y += 1
 		
 		#read in camera center <XYZ>
 		y = 0
 		while y < 3:
-		 	cameraObj.cameraCenter.append(line[0:line.find(' ')])
+		 	cameraObj.cameraCenter[y] = line[0:line.find(' ')]
 		 	print "cameraObj.cameraCenter[" + str(y) + "] is: " + cameraObj.cameraCenter[y]
 		 	line = line[line.find(' ')+1:]
-		 	print "remaining line is: " + line
 		 	y += 1
 		
 		#read in radial distortion
@@ -222,22 +205,14 @@ def parseCameras(f, modelObject):
 		x += 1
 	#end of while x
 
-def parsePoints(f):
-	global verbose
-	global testing
-	global numPoints
-	global pointsXYZList
-	global pointsRGBList
-	global pointsMeasurementsList
-
+def parsePoints(f, modelObject):
 	x = 0
-	while x < numPoints: # reading in however many cameras are in this model
+	while x < modelObject.numPoints: # reading in however many cameras are in this model
 		line = f.readline()
 		line = line.rstrip()
 		if (len(line) == 0 or line.startswith('#')): # skipping any blank or commented lines
 			continue
-			#read in <XYZ>
-		if testing: print "remaining line is: " + line
+		#read in <XYZ>
 		xyz_list = ["", "", ""]
 		y = 0
 		while y < 3:

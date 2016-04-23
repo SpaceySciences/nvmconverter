@@ -48,4 +48,22 @@ else: # no correct input syntax
 
 if inputFile.endswith(".nvm"):
 	from nvmClass import *
-	parseNVM(inputFile)
+	nvmObj = parseNVM(inputFile)
+	if verbose:
+		print "===========================================================>"
+		print "NVM Version: " + nvmObj.nvmVersion
+		print "NVM Calibration: " + nvmObj.nvmCalibration
+		print "Total number of models: " + str(nvmObj.numTotalModels)
+		print "Number of full models: " + str(nvmObj.numFullModels)
+		print "Number of empty models: " + str(nvmObj.numEmptyModels)
+		print "Total number of cameras: " + str(nvmObj.numCamerasTotal)
+		print "Total number of 3D points: " + str(nvmObj.numPointsTotal)
+		x = 0
+		while x < nvmObj.numTotalModels:
+
+			x += 1
+		#print models
+
+	# 	self.modelArray = []
+	# 	self.plyArray = []
+	# 	self.numPlyFiles = 0
