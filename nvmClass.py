@@ -110,24 +110,22 @@ def parseNVM(inputFile):
 
 	#extracting and parsing info from nvm file
 	with open(inputFile) as f:
-		parseVersion(f, nvmObject)
-		parseModels(f, nvmObject)
-
-		#read in comments for the PLY section
-
+		parseVersion(f, nvmObject) # parsing the NVM version and configuration
+		parseModels(f, nvmObject) # parsing the Models from the NVM
+		#parsePly(f, nvmObject) # parsing the PLY files from the NVM
 		#read in int for number of PLY files
-
 		#read in list of indices of models that have associated PLY
+
 	return nvmObject
 
 def parseVersion(f, nvmObject):
 	line = skipBlankLines(f)
 	#read in version (don't know how version will change input yet)
-	if (not (line.find(' ') == -1)):
+	if (not (line.find(' ') == -1)): # there is more than one word
 		nvmObject.nvmVersion = line[0:line.find(' ')] #getting just the version, no calibration
 		#calibration command in file read 'FixedK fx cx fy cy'
 		nvmObject.nvmCalibration = line[len(nvmObject.nvmVersion):]
-	else:
+	else: # there is only one word
 		nvmObject.nvmVersion = line
 
 def parseModels(f, nvmObject):
@@ -142,6 +140,7 @@ def parseModels(f, nvmObject):
 
 		# gather model data
 		modelObject = ModelObject() # has numCameras, cameraArray, numPoints, pointArray
+		nvmObject.modelArray.append(modelObject)		
 		nvmObject.numTotalModels += 1
 		modelObject.numCameras = int(line[0:]) # read in number of cameras
 		nvmObject.numCamerasTotal += modelObject.numCameras
@@ -152,9 +151,9 @@ def parseModels(f, nvmObject):
 		nvmObject.numPointsTotal += modelObject.numPoints
 		if modelObject.numPoints > 0: nvmObject.numFullModels += 1
 		else: nvmObject.numEmptyModels += 1
-		#parsePoints(f, modelObject) # read in 3D point attributes
-		
-		z = raw_input("Finished reading through ALL models! ")
+		parsePoints(f, modelObject) # read in 3D point attributes
+
+	z = raw_input("Finished parsing all NVM models! ")
 	# end of while reading through all models
 
 def parseCameras(f, modelObject):
@@ -163,118 +162,145 @@ def parseCameras(f, modelObject):
 	while x < modelObject.numCameras: # reading in however many cameras are in this model
 		cameraObj = CameraObject() # has fileName, focalLength, quaternionArray, cameraCenter, radialDistortion
 		modelObject.cameraArray.append(cameraObj)
-
-		line = f.readline()
-		line = line.rstrip()
-		if (len(line) == 0 or line.startswith('#')): continue # skipping any blank or commented lines
+		line = skipBlankLines(f)
 		
 		#read in file name
-		print "remaining line is: " + line
 		cameraObj.fileName = line[0:line.find(' ')] # get each camera file location and store it
-		print "cameraObj.filname " + str(x) + " is: " + cameraObj.fileName
 		line = line[line.find(' ')+1:] # removing filename from temp reading line
 		line = line.strip()
-
 		#read in focal length
 		cameraObj.focalLength = line[0:line.find(' ')] # <focal length> --> one integer
-		print "cameraObj.focalLength " + str(x) + " is: " + cameraObj.focalLength
-		line = line[line.find(' ')+1:] # removing focal length from temp reading line
-		
+		line = line[line.find(' ')+1:] # removing focal length from temp reading line		
 		#read in quaternion <WXYZ>
 		y = 0
 		while y < 4:
 			cameraObj.quaternionArray[y] = line[0:line.find(' ')]
-			print "cameraObj.quaternionArray[" + str(y) + "] is: " + cameraObj.quaternionArray[y]
 			line = line[line.find(' ')+1:]
-			y += 1
-		
+			y += 1		
 		#read in camera center <XYZ>
 		y = 0
 		while y < 3:
 		 	cameraObj.cameraCenter[y] = line[0:line.find(' ')]
-		 	print "cameraObj.cameraCenter[" + str(y) + "] is: " + cameraObj.cameraCenter[y]
 		 	line = line[line.find(' ')+1:]
-		 	y += 1
-		
+		 	y += 1		
 		#read in radial distortion
-		cameraObj.radialDistortion = line[0:line.find(' ')] # <radial distortion> --> one int
-		print "cameraObj.radialDistortion " + str(x) + " is: " + cameraObj.radialDistortion
-		#z = raw_input()
-		
+		cameraObj.radialDistortion = line[0:line.find(' ')] # <radial distortion> --> one int		
 		#there is a zero after each camera, so don't worry about the rest of the line
 		x += 1
 	#end of while x
 
 def parsePoints(f, modelObject):
+	# modelObject has numCameras, cameraArray, numPoints, pointArray
 	x = 0
 	while x < modelObject.numPoints: # reading in however many cameras are in this model
-		line = f.readline()
-		line = line.rstrip()
-		if (len(line) == 0 or line.startswith('#')): # skipping any blank or commented lines
-			continue
+		pointObj = PointObject() # has xyzArray, rgbArray, numMeasurments, measurementArray[]
+		modelObject.pointArray.append(pointObj)
+		line = skipBlankLines(f)
 		#read in <XYZ>
-		xyz_list = ["", "", ""]
 		y = 0
 		while y < 3:
-			xyz_list[y] = line[0:line.find(' ')]
-			if testing: print "xyz_list[" + str(y) + "] is: " + xyz_list[y]
+			pointObj.xyzArray[y] = line[0:line.find(' ')]
 			line = line[line.find(' ')+1:]
 			line = line.strip()
-			if testing: print "remaining line is: " + line
 			y += 1
-		pointsXYZList.append(xyz_list)
-			#read in <RGB>
-		rgb_list = ["", "", ""]
+		#read in <RGB>
 		y = 0
 		while y < 3:
-			rgb_list[y] = line[0:line.find(' ')]
-			if testing: print "rgb_list[" + str(y) + "] is: " + rgb_list[y]
+			pointObj.rgbArray[y] = line[0:line.find(' ')]
 			line = line[line.find(' ')+1:]
 			line = line.strip()
-			if testing: print "remaining line is: " + line
 			y += 1
-		pointsRGBList.append(rgb_list)
-			#read in number of measurements
-		measurements_list = [] # one of the contains many measurment_obj's
-		numMeasurements = int(line[0:line.find(' ')])
-		if testing: print "numMeasurements is: " + str(numMeasurements)
+		#read in number of measurements
+		pointObj.numMeasurements = int(line[0:line.find(' ')])
 		line = line[line.find(' ')+1:]
-		if testing: print "remaining line is: " + line
+		#read in list of measurements
 		y = 0
-			#read in list of measurments
-		while y < numMeasurements:
-				#read in image index
-			measurement_obj = [] # --> <Image index> <Feature Index> <xy>
-			measurement_obj.append(line[0:line.find(' ')])
-			if testing: print "image index is: " + measurement_obj[0]
+		while y < pointObj.numMeasurements:
+			measObj = PointMeasurementObject() # has imageIndex, featureIndex, xyArray[]
+			pointObj.measurementArray.append(measObj)
+			#read in image index
+			measObj.imageIndex = line[0:line.find(' ')]
 			line = line[line.find(' ')+1:]
 			line = line.strip()
-			if testing: print "remainnig line is: " + line
-				#read in feature index
-			measurement_obj.append(line[0:line.find(' ')])
-			if testing: print "feature index is: " + measurement_obj[1]
+			#read in feature index
+			measObj.featureIndex = line[0:line.find(' ')]
 			line = line[line.find(' ')+1:]
 			line = line.strip()
-			if testing: print "remaining line is: " + line
-			#z = raw_input()
-				#read in <XY>
-			xy_list = ["", ""]
+			#read in <XY>
 			z = 0
 			while z < 2:
-				if z == 0: #not the last number in the line
-					xy_list[z] = line[0:line.find(' ')]
-				else: #yes the last number in the line
-					xy_list[z] = line[0:]
-				if testing: print "xy_list[" + str(z) + "] is: " + xy_list[z]
+				#this if-else is to handle reading information from the very end of a line
+				if y < pointObj.numMeasurements-1: #NOT reading in the last measurment
+					measObj.xyArray[z] = line[0:line.find(' ')] #not the last number in the line
+				else: #yes reading in the last measurement
+					if z == 0: measObj.xyArray[z] = line[0:line.find(' ')]
+					else : measObj.xyArray[z] = line[0:]#yes the last number in the line
 				line = line[line.find(' ')+1:]
 				line = line.strip()
-				if testing: print "remaining line is: " + line
 				z += 1
-			#end of whil reading through <xy>
-		 	measurement_obj.append(xy_list)
-		 	measurements_list.append(measurement_obj)
+			#end of while reading through <xy>
 		 	y += 1
 		#end of while reading through measurements
-		pointsMeasurementsList.append(measurements_list)
 		x += 1
 	#end of while reading through points
+
+def doNVMVerbose(nvmObj):
+	print "===========VERBOSE===========>"
+	print "NVM Version: " + nvmObj.nvmVersion
+	print "NVM Calibration: " + nvmObj.nvmCalibration
+	print "Total number of models: " + str(nvmObj.numTotalModels)
+	print "Number of full models: " + str(nvmObj.numFullModels)
+	print "Number of empty models: " + str(nvmObj.numEmptyModels)
+	print "Total number of cameras: " + str(nvmObj.numCamerasTotal)
+	print "Total number of 3D points: " + str(nvmObj.numPointsTotal)
+	#print models
+	x = 0
+	modArr = nvmObj.modelArray
+	while x < nvmObj.numTotalModels:
+		print "NVM Model " + str(x+1) + ":"
+		print "  Number of Cameras: " + str(modArr[x].numCameras)
+		#print cameras
+		camArr = modArr[x].cameraArray
+		y = 0
+		while y < modArr[x].numCameras:
+			print "    Camera " + str(y+1) + ":"
+			print "      File name: " + camArr[y].fileName
+			print "      Focal length: " + camArr[y].focalLength
+			#quatArr = camArr[y].quaternionArray
+			print "      Quaternion point: " + str(camArr[y].quaternionArray)
+			print "      Camera center: " + str(camArr[y].cameraCenter)
+			print "      Radial distortion: " + camArr[y].radialDistortion
+
+			y += 1
+		#end while y
+		print "  Number of 3D Points: " + str(nvmObj.modelArray[x].numPoints)
+		#print points
+		pntArr = modArr[x].pointArray # has xyzArray, rgbArray, numMeasurments, measurementArray
+		y = 0
+		while y < modArr[x].numPoints:
+			print "    Point " + str(y+1) + ":"
+			print "      XYZ point: " + str(pntArr[y].xyzArray)
+			print "      RGB value: " + str(pntArr[y].rgbArray)
+			print "      Number of measurements: " + str(pntArr[y].numMeasurements)
+			measArr = pntArr[y].measurementArray # has imageIndex, featureIndex, xyArray[]
+			z = 0
+			while z < pntArr[y].numMeasurements:
+				print "        Measurement " + str(z+1) + ":"
+				print "          Image index: " + measArr[z].imageIndex
+				print "          Feature index: " + measArr[z].featureIndex
+				print "          XY point: " + str(measArr[z].xyArray)
+				z += 1
+			#end while z
+			y += 1
+		#end while y
+		x += 1
+	# end while print models
+
+	print "  Number of PLY Files: " + str(nvmObj.numPlyFiles)
+	#print ply files
+	x = 0
+	while x < nvmObj.numPlyFiles:
+
+		x += 1
+	# end while print ply
+	print "=============================>"
