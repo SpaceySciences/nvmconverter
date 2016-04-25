@@ -5,7 +5,7 @@
 # Github: github.com/awkbr549
 # Converts the VisualSFM .nvm file type into the OpenSFM .json typ
 #
-# Modeled after Caleb Adams' (github.com/piepieninja) original code
+# Some code taken from Caleb Adams' (github.com/piepieninja) original code
 #
 
 import sys
@@ -40,8 +40,9 @@ else: # no correct input syntax
 	input()
 	sys.exit(0)
 
+#Converting from NVM to something else
 if inputFile.endswith(".nvm"):
 	from nvmClass import *
 	nvmObj = parseNVM(inputFile)
 	if verbose:
-		doNVMVerbose(nvmObj)
+		doNVMVerbose(inputFile, nvmObj)
