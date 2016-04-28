@@ -1,9 +1,9 @@
 all: run
 
-run: convert2.py test.nvm
+run: convert.py test.nvm
 	clear
-	./convert2.py test.nvm
+	./convert.py test.nvm
 
-v: convert2.py test.nvm
+v: convert.py test.nvm
 	clear
-	./convert2.py -v test.nvm
+	./convert.py -v test.nvm
