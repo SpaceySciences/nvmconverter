@@ -137,7 +137,8 @@ def parseModels(f, nvmObject):
 		else: nvmObject.numEmptyModels += 1
 		parsePoints(f, modelObject) # read in 3D point attributes
 
-	z = raw_input("Finished parsing all NVM models! ")
+	#z = raw_input("Finished parsing all NVM models! ")
+	print "Finished parsing all NVM models!"
 	# end of while reading through all models
 
 def parseCameras(f, modelObject):
