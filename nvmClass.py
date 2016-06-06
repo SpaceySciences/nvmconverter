@@ -1,5 +1,5 @@
-##outline of .nvm file
-#
+# #outline of .nvm file
+
 # NVM_V3 [optional calibration]						#file version header
 # <Number of cameras>
 # <File Name> <focal length> <quaternion WXYZ> <camera center> <radial distortion> 0
@@ -10,11 +10,11 @@
 # [optional blank line]
 # <Number of 3D points>
 # <XYZ> <RBG> <number of measurements> <Image index> <Feature Index> <xy> ... <Image index> < Feature Index> <xy>
-#
+
 # .
 # .
 # .
-#
+
 # <Number of cameras>
 # <File Name> <focal length> <quaternion WXYZ> <camera center> <radial distortion> 0
 # .
@@ -29,7 +29,7 @@
 # <PLY comments>
 # <number of PLY files>
 # <List of indices of models that have associated PLY>
-##
+# #
 
 ##########################################################
 
@@ -150,8 +150,8 @@ def parseCameras(f, modelObject):
 		line = skipBlankLines(f)
 		
 		#read in file name
-		cameraObj.fileName = line[0:line.find(' ')] # get each camera file location and store it
-		line = line[line.find(' ')+1:] # removing filename from temp reading line
+		cameraObj.fileName = line[0:line.find( '	')] # get each camera file location and store it #strange character
+		line = line[line.find( '	')+1:] # removing filename from temp reading line #strange character
 		line = line.strip()
 		#read in focal length
 		cameraObj.focalLength = line[0:line.find(' ')] # <focal length> --> one integer

@@ -1,0 +1,13 @@
+{
+    "v2 apple iphone 4s back camera 4.28mm f/2.4 3264 2448 perspective 0.9722": {
+        "focal_prior": 0.9722222222222222, 
+        "width": 3264, 
+        "k1": 0.0, 
+        "k2": 0.0, 
+        "k1_prior": 0.0, 
+        "k2_prior": 0.0, 
+        "projection_type": "perspective", 
+        "focal": 0.9722222222222222, 
+        "height": 2448
+    }
+}

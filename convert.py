@@ -46,3 +46,4 @@ if inputFile.endswith(".nvm"):
 	nvmObj = parseNVM(inputFile)
 	if verbose:
 		doNVMVerbose(inputFile, nvmObj)
+	from jsonClass import *
