@@ -1,0 +1,49 @@
+"cameras": {
+    "v2 unknown unknown -1 -1 perspective 0": {
+        "focal_prior": 0.85, 
+        "width": 2340, 
+        "k1": 0.008654700228355738, 
+        "k2": 0.0022244768304425767, 
+        "k1_prior": 0.0, 
+        "k2_prior": 0.0, 
+        "projection_type": "perspective", 
+        "focal": 0.8485291558614545, 
+        "height": 4160
+    }
+}, 
+"shots": {
+    "2Uz323s.jpg": {
+        "orientation": 1, 
+        "camera": "v2 unknown unknown -1 -1 perspective 0", 
+        "gps_position": [
+            0.0, 
+            0.0, 
+            0.0
+        ], 
+        "gps_dop": 999999.0, 
+        "rotation": [
+            1.9230995786013372, 
+            -1.2159951048789994, 
+            0.36652652433924782
+        ], 
+        "translation": [
+            4.6710618840977016, 
+            -0.34227320352858437, 
+            -0.68025151936771944
+        ]
+} 
+"points": {
+    "199": {
+        "color": [
+            59.0, 
+            37.0, 
+            32.0
+        ], 
+        "reprojection_error": 0.000594625127520873, 
+        "coordinates": [
+            7.556245331735585, 
+            11.13799313223725, 
+            -6.63993571483443
+        ]
+    }
+}
