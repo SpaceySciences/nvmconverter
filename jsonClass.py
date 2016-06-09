@@ -1,74 +1,77 @@
-#outline of JSON file
-#
-#[
-#	{
-#		"cameras":{
-#			"<name of camera1 and specs>":{
-#				"focal_prior": <decimal>,
-#				"width": <integer>, #pixels
-#				"k1": <decimal>,
-#				"k2": <decimal>,
-#				"k1_prior": <decimal>,
-#				"k2_prior": <decimal>,
-#				"projection_type": "<string>", #usually "perspective"
-#				"focal": <decimal>
-#				"height": <integer> #pixels
-#			}, #individual camera !!!Comma is important
-#			...
-#			"<name of cameraN and specs>":{ ... }
-#		} #cameras
-#
-#		"shots":{
-#			"<filename1.jpg>": {
-#				"orientation": <integer>,
-#				"camera": <name of cameraX and specs> #should match above options
-#				"gps_postion":[
-#					<decimal x>,
-#					<decimal y>,
-#					<decimal z>
-#				] #gps_position
-#				"gps_dop": <decimal>
-#				"rotation":[
-#					<decimal x>,
-#					<decimal y>,
-#					<decimal z>
-#				] #rotation
-#				"translation":[
-#					<decimal x>,
-#					<decimal y>,
-#					<decimal z>
-#				] #translation
-#				"capture_time":<decimal> #UNIX timestamp
-#			}, #filename1.jpg !!!Comma is important
-#			...
-#			"<filenameN.jpg>": { ... }	
-#		} #shots
-#		
-#		"points":{
-#			"<integer string for point1>":{
-#				"color":[
-#					<decimal red>,
-#					<decimal green>,
-#					<decimal blue>
-#				] #color
-#				"reprojection_error":<decimal>,
-#				"coordinates":[
-#					<decimal x>,
-#					<decimal y>,
-#					<decimal z>
-#				] #coordinates
-#			}, #point1 !!!Comma is important
-#			...
-#			"<integer string for pointN>": { ... }
-#		} #points
-#
-#	}
-#]
+# outline of JSON file
+
+# [
+# 	{
+# 		"cameras":{
+# 			"<name of camera1 and specs>":{
+# 				"focal_prior": <decimal>,
+# 				"width": <integer>, #pixels
+# 				"k1": <decimal>,
+# 				"k2": <decimal>,
+# 				"k1_prior": <decimal>,
+# 				"k2_prior": <decimal>,
+# 				"projection_type": "<string>", #usually "perspective"
+# 				"focal": <decimal>
+# 				"height": <integer> #pixels
+# 			}, #individual camera !!!Comma is important
+# 			...
+# 			"<name of cameraN and specs>":{ ... }
+# 		} #cameras
+
+# 		"shots":{
+# 			"<filename1.jpg>": {
+# 				"orientation": <integer>,
+# 				"camera": <name of cameraX and specs> #should match above options
+# 				"gps_postion":[
+# 					<decimal x>,
+# 					<decimal y>,
+# 					<decimal z>
+# 				] #gps_position
+# 				"gps_dop": <decimal>
+# 				"rotation":[
+# 					<decimal x>,
+# 					<decimal y>,
+# 					<decimal z>
+# 				] #rotation
+# 				"translation":[
+# 					<decimal x>,
+# 					<decimal y>,
+# 					<decimal z>
+# 				] #translation
+# 				"capture_time":<decimal> #UNIX timestamp
+# 			}, #filename1.jpg !!!Comma is important
+# 			...
+# 			"<filenameN.jpg>": { ... }	
+# 		} #shots
+		
+# 		"points":{
+# 			"<integer string for point1>":{
+# 				"color":[
+# 					<decimal red>,
+# 					<decimal green>,
+# 					<decimal blue>
+# 				] #color
+# 				"reprojection_error":<decimal>,
+# 				"coordinates":[
+# 					<decimal x>,
+# 					<decimal y>,
+# 					<decimal z>
+# 				] #coordinates
+# 			}, #point1 !!!Comma is important
+# 			...
+# 			"<integer string for pointN>": { ... }
+# 		} #points
+
+# 	}
+# ]
 
 ###################################################
 
 import sys
-from nvmClass import *
+import math
+#from nvmClass import *
+
+scaleFactor = 5
 
 class JsonObject:
 	def __init__(self):
@@ -159,11 +162,20 @@ def spliceShots(jsonObj, nvmCamArray):
 		shotObj.camera = "\"v2 unknown unknown -1 -1 perspective 0\""
 		shotObj.gpsPosition = ["0.0", "0.0", "0.0"]
 		shotObj.gpsDop = "999999.0"
-		y = 0
-		while y < 3:
-			shotObj.rotation[y] = nvmCamArray[x].quaternionArray[y+1]
-			y += 1
-		shotObj.translation = nvmCamArray[x].cameraCenter
+
+		#experimenting
+		shotObj.rotation[0] = nvmCamArray[x].quaternionArray[1]
+		shotObj.rotation[1] = nvmCamArray[x].quaternionArray[2]
+		shotObj.rotation[2] = nvmCamArray[x].quaternionArray[3]
+		shotObj.translation[0] = str(scaleFactor * float(nvmCamArray[x].cameraCenter[0]))
+		shotObj.translation[1] = str(scaleFactor * float(nvmCamArray[x].cameraCenter[1]))
+		shotObj.translation[2] = str(scaleFactor * float(nvmCamArray[x].cameraCenter[2]))
+
+		# y = 0
+		# while y < 3:
+		# 	shotObj.rotation[y] = nvmCamArray[x].quaternionArray[y+1]
+		# 	shotObj.translation[y] = str(10 * float(nvmCamArray[x].cameraCenter[y]))
+		# 	y += 1
 		shotObj.captureTime = "0.0"
 		jsonObj.shotArray.append(shotObj)
 		x += 1
@@ -176,19 +188,37 @@ def splicePoints(jsonObj, nvmPointArray):
 		pointObj.name = "\"" + str(x) + "\""
 		pointObj.color = nvmPointArray[x].rgbArray
 		pointObj.reprojectionError = "0.05"
-		pointObj.coordinates = nvmPointArray[x].xyzArray
+		#experimenting
+		#x --> red
+		#y --> green
+		#z --> blue
+		rotateX = [ 	[-1, 0, 0], 
+			[0, -math.cos(math.pi/2), math.sin(math.pi/2)], 
+			[0, -math.sin(math.pi/2), -math.cos(math.pi/2)] 
+		]
+		a = scaleFactor * float(nvmPointArray[x].xyzArray[0])
+		b = scaleFactor * float(nvmPointArray[x].xyzArray[1])
+		c = scaleFactor * float(nvmPointArray[x].xyzArray[2])
+
+		y = 0
+		while y < 3:
+			pointObj.coordinates[y] = str((rotateX[y][0] * a) + (rotateX[y][1] * b) + (rotateX[y][2] * c))
+			y += 1
+		# y = 0
+		# while y < 3:
+		# 	pointObj.coordinates[y] = str(10 * float(nvmPointArray[x].xyzArray[y]))
+		# 	y += 1
 		jsonObj.pointArray.append(pointObj)
 		x += 1
 
 def exportToJson(inputFile, jsonObj):
-	shotString = spliceShotString(jsonObj)
-	print shotString
-	pointString = ""
+	shotString = exportShotString(jsonObj)
+	pointString = exportPointString(jsonObj)
 	outputFile = open(inputFile + ".json", "w")
 	outputFile.write(shotString + pointString)
 	outputFile.close()
 
-def spliceShotString(jsonObj): 
+def exportShotString(jsonObj): 
 	shotString = "\t\t\"shots\": {\n"
 	x = 0
 	while x < jsonObj.numShotsTotal:
@@ -249,6 +279,50 @@ def spliceShotString(jsonObj):
 		x += 1
 	shotString += "\t\t},\n"
 	return shotString
+
+def exportPointString(jsonObj):
+	#point objects
+	pointString = "\t\t\"points\": {\n"
+	x = 0
+	while x < jsonObj.numPointsTotal:
+		#name
+		pointString += "\t\t\t"
+		pointString += jsonObj.pointArray[x].name
+		#attributes
+		pointString += ": {\n"
+		#color
+		pointString += "\t\t\t\t\"color\": [\n"
+		y = 0
+		while y < 3:
+			#rgb
+			pointString += "\t\t\t\t\t"
+			pointString += jsonObj.pointArray[x].color[y]
+			pointString += ".0"
+			if (y < 2): pointString += ","
+			pointString += "\n"
+			y += 1
+		pointString += "\t\t\t\t],\n"
+		#reprojection_error
+		pointString += "\t\t\t\t\"reprojection_error\": "
+		pointString += jsonObj.pointArray[x].reprojectionError
+		pointString += ",\n"
+		#coordinates
+		pointString += "\t\t\t\t\"coordinates\": [\n"
+		y = 0
+		while y < 3:
+			#xyz
+			pointString += "\t\t\t\t\t"
+			pointString += jsonObj.pointArray[x].coordinates[y]
+			if (y < 2): pointString += ","
+			pointString += "\n"
+			y += 1
+		pointString += "\t\t\t\t]\n"
+		pointString += "\t\t\t}"
+		if (x < jsonObj.numPointsTotal-1): pointString += ","
+		pointString += "\n"
+		x += 1
+	pointString += "\t\t}"
+	return pointString
 
 def doJsonVerbose(inputFile, jsonObj):
 	parsedJsonFile = open(inputFile + ".json.txt", "w")
