@@ -1,0 +1,2124 @@
+===========JSON===========>
+Total number of Cameras: 1
+Total number of Shots: 3
+Total number of Points: 519
+
+Cameras:
+  Name: "v2 unknown unknown -1 -1 perspective 0"
+  Focal Prior: 0.0
+  Width: 0
+  k1: 0.0
+  k2: 0.0
+  k1 Prior: 0.0
+  k2 Prior: 0.0
+  Projection Type: "perspective"
+  Focal: 0.0
+  Height: 0
+
+Shots:
+  Shot 1:
+    Name: "2Uz323s.jpg"
+    Orientation: 1
+    Camera: "v2 unknown unknown -1 -1 perspective 0"
+    GPS Position: ['0.0', '0.0', '0.0']
+    GPS Dop: 999999.0
+    Rotation: ['0.0379419466682', '-0.156120201312', '-0.0429176541001']
+    Translation: ['0.299201837806', '-0.0162340099777', '0.449517987581']
+    Capture Time: 0.0
+  Shot 2:
+    Name: "Tz5HyB5.jpg"
+    Orientation: 1
+    Camera: "v2 unknown unknown -1 -1 perspective 0"
+    GPS Position: ['0.0', '0.0', '0.0']
+    GPS Dop: 999999.0
+    Rotation: ['0.0847142667746', '0.115724375489', '0.0745473099999']
+    Translation: ['1.25178552333', '-0.318853428636', '0.417794498547']
+    Capture Time: 0.0
+  Shot 3:
+    Name: "7QyUHRg.jpg"
+    Orientation: 1
+    Camera: "v2 unknown unknown -1 -1 perspective 0"
+    GPS Position: ['0.0', '0.0', '0.0']
+    GPS Dop: 999999.0
+    Rotation: ['0', '0', '0']
+    Translation: ['0.852843666233', '0.150461431232', '-0.09283843867']
+    Capture Time: 0.0
+
+Points:
+  Point "0":
+    Color: ['43', '27', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.994272399834', '-0.478185846569', '2.00651579524']
+  Point "1":
+    Color: ['88', '66', '60']
+    Reprojection Error: 0.05
+    Coordinates: ['0.993306536279', '-0.605610039246', '1.98580074841']
+  Point "2":
+    Color: ['48', '29', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['1.025920562', '-0.0942478511166', '2.03423519824']
+  Point "3":
+    Color: ['78', '60', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.86285382078', '-0.596604940277', '1.98255760524']
+  Point "4":
+    Color: ['78', '60', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.86285382078', '-0.596604940277', '1.98255760524']
+  Point "5":
+    Color: ['69', '46', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12097220322', '-0.200538780757', '2.02248334191']
+  Point "6":
+    Color: ['90', '60', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.987828924414', '-0.563600525476', '1.98520706217']
+  Point "7":
+    Color: ['68', '51', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.750422725342', '-0.571934880945', '1.98736879854']
+  Point "8":
+    Color: ['52', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02132090592', '-0.503834736701', '1.99995773053']
+  Point "9":
+    Color: ['103', '71', '66']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01109663392', '-0.586029266339', '1.98622861368']
+  Point "10":
+    Color: ['59', '37', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03021956068', '-0.549512675863', '1.98942091251']
+  Point "11":
+    Color: ['66', '43', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.636520603111', '-0.31143467119', '2.01475246124']
+  Point "12":
+    Color: ['77', '54', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.973955346352', '-0.590886626226', '1.98359562144']
+  Point "13":
+    Color: ['59', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01804806465', '-0.377678554259', '2.03184070567']
+  Point "14":
+    Color: ['62', '40', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.846800689133', '-0.0526137136607', '2.04689682413']
+  Point "15":
+    Color: ['74', '50', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.844655013808', '-0.583458222227', '1.98287186332']
+  Point "16":
+    Color: ['63', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.651533583152', '-0.36689783427', '2.01213881819']
+  Point "17":
+    Color: ['59', '39', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.89141852057', '-0.128152443307', '2.03974834409']
+  Point "18":
+    Color: ['65', '41', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.780619056206', '-0.291720158288', '2.04339307032']
+  Point "19":
+    Color: ['60', '39', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0040451517', '-0.319379485383', '2.03668422269']
+  Point "20":
+    Color: ['81', '58', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.754990154958', '-0.195730514791', '2.02801044167']
+  Point "21":
+    Color: ['78', '45', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10011410555', '-0.321768449005', '2.01828475741']
+  Point "22":
+    Color: ['94', '61', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['1.09858365347', '-0.335766768198', '2.01855977774']
+  Point "23":
+    Color: ['61', '39', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02164655136', '-0.171467106679', '2.02690566392']
+  Point "24":
+    Color: ['108', '79', '71']
+    Reprojection Error: 0.05
+    Coordinates: ['0.959207448821', '-0.61911890752', '1.98641179551']
+  Point "25":
+    Color: ['95', '65', '62']
+    Reprojection Error: 0.05
+    Coordinates: ['0.851846176879', '-0.579387651897', '1.98399645915']
+  Point "26":
+    Color: ['69', '43', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02445137955', '-0.478444136089', '2.00314589204']
+  Point "27":
+    Color: ['57', '36', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.844412542757', '-0.0897948582871', '2.03934106306']
+  Point "28":
+    Color: ['89', '60', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.861070781536', '-0.311285461229', '2.05581788607']
+  Point "29":
+    Color: ['89', '60', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.861070781536', '-0.311285461229', '2.05581788607']
+  Point "30":
+    Color: ['82', '52', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0188241844', '-0.288662497371', '2.03410272939']
+  Point "31":
+    Color: ['65', '41', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08920529612', '-0.214517699764', '2.01908307042']
+  Point "32":
+    Color: ['107', '85', '87']
+    Reprojection Error: 0.05
+    Coordinates: ['0.797954971308', '0.372733610425', '1.5919761946']
+  Point "33":
+    Color: ['65', '42', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.761146871688', '-0.312367909322', '2.03892271548']
+  Point "34":
+    Color: ['66', '47', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10909931436', '-0.22814330551', '2.0206652364']
+  Point "35":
+    Color: ['78', '62', '61']
+    Reprojection Error: 0.05
+    Coordinates: ['0.869072467527', '0.36454804237', '1.59768346235']
+  Point "36":
+    Color: ['39', '26', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.959937571304', '-0.50259254233', '2.00512228921']
+  Point "37":
+    Color: ['58', '36', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.831892905225', '-0.130328256488', '2.03544293622']
+  Point "38":
+    Color: ['53', '33', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02690309138', '-0.422459558611', '2.01896804992']
+  Point "39":
+    Color: ['53', '33', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.026858951', '-0.422623314805', '2.01868449388']
+  Point "40":
+    Color: ['37', '21', '21']
+    Reprojection Error: 0.05
+    Coordinates: ['0.816659168771', '-0.454472475848', '2.02704396457']
+  Point "41":
+    Color: ['64', '44', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.8820424912', '-0.560876503141', '1.98425318202']
+  Point "42":
+    Color: ['55', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04083110961', '-0.435166087106', '2.01063456014']
+  Point "43":
+    Color: ['53', '32', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.943926814971', '-0.395382093398', '2.04381551493']
+  Point "44":
+    Color: ['52', '33', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.725253103215', '-0.459170421308', '2.00639213032']
+  Point "45":
+    Color: ['52', '33', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.725240400602', '-0.459270865796', '2.00621764142']
+  Point "46":
+    Color: ['57', '34', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.949142682807', '-0.356816275882', '2.04905819894']
+  Point "47":
+    Color: ['57', '34', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.949142682807', '-0.356816275882', '2.04905819894']
+  Point "48":
+    Color: ['66', '38', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.989862964128', '-0.147233359168', '2.03303681182']
+  Point "49":
+    Color: ['67', '39', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.823752826598', '-0.548265316033', '1.98677985977']
+  Point "50":
+    Color: ['59', '37', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.991975489283', '-0.354278560196', '2.04065811544']
+  Point "51":
+    Color: ['56', '35', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.80438086899', '-0.369532068999', '2.04503710064']
+  Point "52":
+    Color: ['72', '48', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.879991889858', '-0.193133819751', '2.04312841334']
+  Point "53":
+    Color: ['50', '30', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.861923198271', '-0.538711224333', '1.98991441986']
+  Point "54":
+    Color: ['94', '63', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['0.734735090889', '-0.56128453476', '1.98911489284']
+  Point "55":
+    Color: ['91', '58', '54']
+    Reprojection Error: 0.05
+    Coordinates: ['0.773863465101', '-0.222218477862', '2.03525197238']
+  Point "56":
+    Color: ['52', '33', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.902780522354', '-0.540162831635', '1.98879558227']
+  Point "57":
+    Color: ['55', '31', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.623131989873', '-0.132291807537', '2.01294253924']
+  Point "58":
+    Color: ['66', '40', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00024023266', '-0.504186900794', '1.99944411995']
+  Point "59":
+    Color: ['66', '40', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.999943091666', '-0.504044835003', '1.99940164346']
+  Point "60":
+    Color: ['71', '43', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02578280292', '-0.493233033574', '2.00020122893']
+  Point "61":
+    Color: ['62', '41', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.699239970734', '-0.330347946774', '2.01966358237']
+  Point "62":
+    Color: ['72', '42', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.713984816378', '-0.316578103925', '2.0258492028']
+  Point "63":
+    Color: ['88', '55', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01730039001', '-0.163174075662', '2.02895168623']
+  Point "64":
+    Color: ['56', '36', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.931142749943', '-0.375303467106', '2.05054409101']
+  Point "65":
+    Color: ['64', '38', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01387323894', '-0.148657950299', '2.02961564424']
+  Point "66":
+    Color: ['68', '40', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.69755759037', '-0.261377153822', '2.01950080013']
+  Point "67":
+    Color: ['58', '34', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.694187011433', '-0.135990795059', '2.01793540611']
+  Point "68":
+    Color: ['59', '32', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['1.1131193861', '-0.145500237146', '2.02555427038']
+  Point "69":
+    Color: ['41', '23', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.928796066082', '-0.494209732019', '2.00718574846']
+  Point "70":
+    Color: ['71', '42', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.81324648862', '-0.317145754088', '2.05064965171']
+  Point "71":
+    Color: ['75', '46', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05758869904', '-0.480020484172', '2.00162002324']
+  Point "72":
+    Color: ['67', '38', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.69214205838', '-0.437176961394', '2.00517292328']
+  Point "73":
+    Color: ['68', '38', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.6914095672', '-0.438159346675', '2.00628736523']
+  Point "74":
+    Color: ['80', '57', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.853071082045', '-0.248425289373', '2.04789507778']
+  Point "75":
+    Color: ['66', '36', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.917922688618', '-0.0965803075968', '2.04237443808']
+  Point "76":
+    Color: ['72', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.641812150391', '-0.380120584884', '2.01425470694']
+  Point "77":
+    Color: ['59', '47', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.832717686037', '0.385339189257', '1.5825859329']
+  Point "78":
+    Color: ['57', '37', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05382065781', '-0.126632682534', '2.02660760401']
+  Point "79":
+    Color: ['70', '46', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.659354614981', '-0.283994554555', '2.01125453846']
+  Point "80":
+    Color: ['53', '28', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.994115594823', '-0.396773003597', '2.03294186667']
+  Point "81":
+    Color: ['88', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.686473594392', '-0.217634494101', '2.01541861028']
+  Point "82":
+    Color: ['58', '39', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.74635087396', '-0.346321298125', '2.0322895514']
+  Point "83":
+    Color: ['37', '23', '22']
+    Reprojection Error: 0.05
+    Coordinates: ['0.940306015265', '-0.456992194233', '2.02433392912']
+  Point "84":
+    Color: ['54', '34', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.808607698457', '-0.542471234635', '1.99015229393']
+  Point "85":
+    Color: ['41', '26', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.765102445427', '-0.496747663605', '1.99847929686']
+  Point "86":
+    Color: ['66', '42', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.851376848568', '-0.125154916966', '2.03754514035']
+  Point "87":
+    Color: ['59', '35', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.647120529737', '-0.136435592912', '2.01386563371']
+  Point "88":
+    Color: ['90', '58', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.909497870247', '-0.209309756906', '2.04336770173']
+  Point "89":
+    Color: ['82', '53', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04872323717', '-0.278783495504', '2.02356930347']
+  Point "90":
+    Color: ['62', '39', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04709262077', '-0.439339462843', '2.00950836016']
+  Point "91":
+    Color: ['77', '48', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.797551341147', '-0.112117418528', '2.03499254929']
+  Point "92":
+    Color: ['79', '53', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02771019019', '-0.51899817778', '1.99416988685']
+  Point "93":
+    Color: ['71', '48', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.936378866468', '-0.341960879231', '2.05204768333']
+  Point "94":
+    Color: ['56', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.944757023229', '-0.108533340982', '2.03959829808']
+  Point "95":
+    Color: ['65', '36', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.745525487474', '-0.376477311654', '2.0312888169']
+  Point "96":
+    Color: ['47', '27', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.935100289609', '-0.425225336621', '2.03945522892']
+  Point "97":
+    Color: ['68', '49', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.76452358334', '0.405010956671', '1.57017921573']
+  Point "98":
+    Color: ['86', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.855690845912', '-0.333673953608', '2.05412189977']
+  Point "99":
+    Color: ['88', '60', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.866234014819', '-0.276853230959', '2.05233816361']
+  Point "100":
+    Color: ['55', '31', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01898431852', '-0.398486279816', '2.0260072396']
+  Point "101":
+    Color: ['73', '45', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.891685654582', '-0.148473167576', '2.03802599607']
+  Point "102":
+    Color: ['71', '45', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.972611178786', '-0.411754377393', '2.03379419918']
+  Point "103":
+    Color: ['87', '58', '54']
+    Reprojection Error: 0.05
+    Coordinates: ['0.846082250548', '-0.56754909606', '1.98383838235']
+  Point "104":
+    Color: ['87', '57', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05315132817', '-0.25729080639', '2.02222473085']
+  Point "105":
+    Color: ['62', '39', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['1.07704906032', '-0.48285908295', '2.0033372094']
+  Point "106":
+    Color: ['70', '43', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10312654872', '-0.109945685862', '2.03080273485']
+  Point "107":
+    Color: ['73', '51', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.688682083139', '-0.46067059161', '2.00250132854']
+  Point "108":
+    Color: ['73', '51', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.688678827768', '-0.460670744182', '2.00249692068']
+  Point "109":
+    Color: ['75', '45', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.991379418366', '-0.187716703948', '2.03265435133']
+  Point "110":
+    Color: ['68', '40', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.682280595856', '-0.237565438266', '2.0125148969']
+  Point "111":
+    Color: ['74', '49', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.700043240077', '-0.50381462188', '1.99629490319']
+  Point "112":
+    Color: ['68', '46', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.731881897113', '-0.454431000348', '2.01013661871']
+  Point "113":
+    Color: ['88', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.723107849793', '-0.153836776189', '2.02062014478']
+  Point "114":
+    Color: ['81', '53', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.833557103146', '-0.592611049796', '1.98364533921']
+  Point "115":
+    Color: ['68', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.937971808183', '-0.149359910329', '2.03683888676']
+  Point "116":
+    Color: ['74', '42', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.708149671995', '-0.282826057888', '2.02398335242']
+  Point "117":
+    Color: ['70', '42', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01281787041', '-0.488222277074', '2.00252090568']
+  Point "118":
+    Color: ['68', '39', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.960851992142', '-0.349166448275', '2.0475585188']
+  Point "119":
+    Color: ['39', '23', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.854894928403', '-0.494413629933', '2.00888033412']
+  Point "120":
+    Color: ['66', '36', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00363588489', '-0.142608631692', '2.03121813927']
+  Point "121":
+    Color: ['45', '28', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.744928046086', '-0.47866426092', '2.00523192457']
+  Point "122":
+    Color: ['62', '34', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.841522158814', '-0.54272098441', '1.98808581171']
+  Point "123":
+    Color: ['52', '35', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.837265248938', '-0.487851522283', '2.0122649543']
+  Point "124":
+    Color: ['47', '27', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.808262148923', '-0.423372480185', '2.03493226907']
+  Point "125":
+    Color: ['88', '68', '62']
+    Reprojection Error: 0.05
+    Coordinates: ['0.808161015972', '-0.587232794973', '1.98427170236']
+  Point "126":
+    Color: ['69', '45', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.718019763852', '-0.251922850035', '2.02228878204']
+  Point "127":
+    Color: ['58', '38', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.711233037263', '-0.431856871082', '2.01038181914']
+  Point "128":
+    Color: ['87', '55', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.635404998819', '-0.261362929208', '2.01274423304']
+  Point "129":
+    Color: ['235', '236', '222']
+    Reprojection Error: 0.05
+    Coordinates: ['1.26472071284', '0.207595713904', '1.86434405012']
+  Point "130":
+    Color: ['41', '22', '18']
+    Reprojection Error: 0.05
+    Coordinates: ['0.806612777905', '-0.528910231613', '1.99281990985']
+  Point "131":
+    Color: ['38', '20', '19']
+    Reprojection Error: 0.05
+    Coordinates: ['0.93303526274', '-0.530827886744', '1.99068734']
+  Point "132":
+    Color: ['82', '57', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['0.823464956344', '-0.597889715898', '1.9843423174']
+  Point "133":
+    Color: ['50', '33', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.813065773336', '-0.463127670675', '2.02288931646']
+  Point "134":
+    Color: ['55', '34', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00937379669', '-0.127867722614', '2.0337676357']
+  Point "135":
+    Color: ['80', '50', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.894435444373', '-0.103688175997', '2.04047722072']
+  Point "136":
+    Color: ['94', '76', '74']
+    Reprojection Error: 0.05
+    Coordinates: ['0.845281119478', '0.376636872972', '1.5873459278']
+  Point "137":
+    Color: ['50', '32', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.795645694115', '-0.0616623774556', '2.04125097568']
+  Point "138":
+    Color: ['88', '59', '60']
+    Reprojection Error: 0.05
+    Coordinates: ['0.650514600366', '-0.471304767445', '2.004683165']
+  Point "139":
+    Color: ['50', '30', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.694136811716', '-0.0815848096184', '2.02416649456']
+  Point "140":
+    Color: ['86', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.86322827347', '-0.152881525052', '2.0375519484']
+  Point "141":
+    Color: ['70', '40', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['1.13479281762', '-0.164485893109', '2.02814188718']
+  Point "142":
+    Color: ['82', '52', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.881765534722', '-0.353468154691', '2.05513186743']
+  Point "143":
+    Color: ['70', '47', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.925504753411', '-0.249398451899', '2.04952481674']
+  Point "144":
+    Color: ['71', '43', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08686672464', '-0.399552716716', '2.01360603242']
+  Point "145":
+    Color: ['70', '40', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.984779220811', '-0.175873723713', '2.03453774486']
+  Point "146":
+    Color: ['70', '40', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.984927959419', '-0.176021199953', '2.0344414618']
+  Point "147":
+    Color: ['70', '49', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.964094446149', '-0.194275087666', '2.03863716968']
+  Point "148":
+    Color: ['89', '60', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01861555299', '-0.564811370984', '1.98735149207']
+  Point "149":
+    Color: ['61', '33', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.715335472443', '-0.150638330271', '2.01984375543']
+  Point "150":
+    Color: ['80', '51', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.950251934196', '-0.340213803947', '2.05071010044']
+  Point "151":
+    Color: ['64', '42', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.65586487456', '-0.414934791454', '2.00937143504']
+  Point "152":
+    Color: ['94', '59', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.739176945078', '-0.194903514943', '2.02514942623']
+  Point "153":
+    Color: ['62', '32', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.805283532063', '-0.158636274361', '2.03492439752']
+  Point "154":
+    Color: ['62', '32', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.80535888815', '-0.158679571989', '2.03492962317']
+  Point "155":
+    Color: ['88', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.79998228821', '-0.153183750566', '2.03214085747']
+  Point "156":
+    Color: ['85', '57', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.89954156822', '-0.352340615456', '2.05364007742']
+  Point "157":
+    Color: ['68', '44', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.684222010319', '-0.123723608997', '2.01628162287']
+  Point "158":
+    Color: ['52', '31', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.852651572079', '-0.532961918877', '1.99223309979']
+  Point "159":
+    Color: ['49', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.719363474304', '-0.0617524225257', '2.03253291665']
+  Point "160":
+    Color: ['69', '39', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06073749763', '-0.156803547782', '2.02640039036']
+  Point "161":
+    Color: ['69', '39', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06086482168', '-0.156802390537', '2.02649348691']
+  Point "162":
+    Color: ['82', '53', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.931543391347', '-0.13480478438', '2.03919105311']
+  Point "163":
+    Color: ['75', '50', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['0.86691502811', '-0.22330589809', '2.06242602375']
+  Point "164":
+    Color: ['90', '60', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['0.876271608286', '-0.147143388795', '2.03840914859']
+  Point "165":
+    Color: ['53', '24', '21']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0950576519', '-0.154860180871', '2.02452116237']
+  Point "166":
+    Color: ['88', '58', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['0.894094271475', '-0.142130870858', '2.03816327503']
+  Point "167":
+    Color: ['75', '45', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00633056352', '-0.102412615127', '2.03400858739']
+  Point "168":
+    Color: ['77', '48', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.752386885487', '-0.375754433836', '2.03312732518']
+  Point "169":
+    Color: ['74', '60', '61']
+    Reprojection Error: 0.05
+    Coordinates: ['0.607757424479', '0.347828492263', '1.60101778969']
+  Point "170":
+    Color: ['65', '36', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.930852775814', '-0.28622128354', '2.05220330355']
+  Point "171":
+    Color: ['90', '61', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['1.13062463184', '-0.113388299663', '2.03343135391']
+  Point "172":
+    Color: ['104', '75', '83']
+    Reprojection Error: 0.05
+    Coordinates: ['0.793560660038', '0.545887769981', '3.11589712147']
+  Point "173":
+    Color: ['61', '40', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.816165600244', '-0.3281702856', '2.04960256809']
+  Point "174":
+    Color: ['54', '28', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.737126121057', '-0.530907150804', '1.9916210139']
+  Point "175":
+    Color: ['50', '29', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.727600307571', '-0.0874995203338', '2.02653575439']
+  Point "176":
+    Color: ['84', '55', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['0.928775186969', '-0.278992237283', '2.05189431479']
+  Point "177":
+    Color: ['47', '25', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.860507153986', '-0.517304251456', '1.99702190711']
+  Point "178":
+    Color: ['67', '38', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03012359781', '-0.364039179016', '2.02694518565']
+  Point "179":
+    Color: ['65', '36', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04566066024', '-0.421252747129', '2.01344807773']
+  Point "180":
+    Color: ['59', '29', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.92808779084', '-0.162820265064', '2.03862753759']
+  Point "181":
+    Color: ['73', '47', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.946334515277', '-0.0921185813128', '2.04031912048']
+  Point "182":
+    Color: ['46', '27', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.687277120444', '-0.0398802256611', '2.03357694065']
+  Point "183":
+    Color: ['65', '43', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.831232225', '-0.556518942328', '1.98530776698']
+  Point "184":
+    Color: ['69', '47', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['0.624325368364', '-0.347141972912', '2.01919169984']
+  Point "185":
+    Color: ['39', '19', '17']
+    Reprojection Error: 0.05
+    Coordinates: ['0.80497147704', '-0.514489493069', '1.99487147504']
+  Point "186":
+    Color: ['80', '54', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['0.802525644262', '-0.552539102615', '1.9873473695']
+  Point "187":
+    Color: ['72', '48', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['0.728892482804', '-0.0938821723704', '2.02530499105']
+  Point "188":
+    Color: ['71', '46', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.983046109257', '-0.408705782449', '2.03276209454']
+  Point "189":
+    Color: ['80', '50', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.801012098771', '-0.592840103823', '1.98423476376']
+  Point "190":
+    Color: ['53', '30', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.893412879313', '-0.413276687887', '2.0444048517']
+  Point "191":
+    Color: ['65', '36', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08846326906', '-0.266580584631', '2.01842816159']
+  Point "192":
+    Color: ['49', '36', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.82228319776', '0.396965456339', '1.57714651861']
+  Point "193":
+    Color: ['59', '38', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.704316287886', '-0.473062917588', '2.00173181186']
+  Point "194":
+    Color: ['51', '24', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.683690404197', '-0.151070890161', '2.0144694235']
+  Point "195":
+    Color: ['55', '32', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.830550294629', '-0.0635821890666', '2.04265451236']
+  Point "196":
+    Color: ['47', '27', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.986504796639', '-0.0539398413518', '2.04386246026']
+  Point "197":
+    Color: ['49', '29', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.797622267318', '-0.518751334892', '1.99566927565']
+  Point "198":
+    Color: ['60', '37', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.671209867555', '-0.480237712271', '1.99992475255']
+  Point "199":
+    Color: ['111', '83', '77']
+    Reprojection Error: 0.05
+    Coordinates: ['0.869793818384', '-0.608322963013', '1.98401359114']
+  Point "200":
+    Color: ['81', '48', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.875599190813', '-0.219330160004', '2.04653148014']
+  Point "201":
+    Color: ['68', '42', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.850583707573', '-0.39570158027', '2.04842388128']
+  Point "202":
+    Color: ['61', '40', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.859563352886', '-0.522866496362', '1.99398926742']
+  Point "203":
+    Color: ['58', '35', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.857626363689', '-0.434018426266', '2.03537155126']
+  Point "204":
+    Color: ['61', '41', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.999701663661', '-0.488031600857', '2.00234207823']
+  Point "205":
+    Color: ['61', '40', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.78947097808', '-0.516025757244', '1.99497087138']
+  Point "206":
+    Color: ['81', '51', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['0.985829869786', '-0.154765292924', '2.03181644807']
+  Point "207":
+    Color: ['78', '48', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00582563221', '-0.11457764715', '2.03254959168']
+  Point "208":
+    Color: ['68', '45', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.992969074573', '-0.527291001404', '1.99098096528']
+  Point "209":
+    Color: ['87', '56', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.640968775455', '-0.225688133119', '2.01109575478']
+  Point "210":
+    Color: ['87', '56', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.640968775455', '-0.225688133119', '2.01109575478']
+  Point "211":
+    Color: ['65', '43', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.886702516721', '-0.418563306483', '2.04240148421']
+  Point "212":
+    Color: ['60', '36', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.66608106674', '-0.171556813605', '2.01358846358']
+  Point "213":
+    Color: ['60', '36', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.66608106674', '-0.171556813605', '2.01358846358']
+  Point "214":
+    Color: ['52', '24', '24']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02555151346', '-0.148544894193', '2.02872413771']
+  Point "215":
+    Color: ['34', '18', '17']
+    Reprojection Error: 0.05
+    Coordinates: ['0.845079372363', '-0.493581526422', '2.00953970296']
+  Point "216":
+    Color: ['71', '49', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.899527739794', '0.371275284202', '1.59584749435']
+  Point "217":
+    Color: ['54', '25', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10576468535', '-0.159784203024', '2.02420200025']
+  Point "218":
+    Color: ['70', '47', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.821905743017', '-0.399154891709', '2.04260523233']
+  Point "219":
+    Color: ['70', '41', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.841906664026', '-0.280098833263', '2.04887709884']
+  Point "220":
+    Color: ['88', '71', '72']
+    Reprojection Error: 0.05
+    Coordinates: ['0.694831303526', '0.359017907883', '1.60298904074']
+  Point "221":
+    Color: ['40', '19', '16']
+    Reprojection Error: 0.05
+    Coordinates: ['0.852872471374', '-0.52206500698', '1.99532796108']
+  Point "222":
+    Color: ['48', '26', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.990111297492', '-0.534255120075', '1.98972037104']
+  Point "223":
+    Color: ['48', '26', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.990111297492', '-0.534255120075', '1.98972037104']
+  Point "224":
+    Color: ['92', '61', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['0.835528009252', '-0.168854634295', '2.03610528434']
+  Point "225":
+    Color: ['92', '63', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['0.784228754967', '-0.579740855481', '1.98529591081']
+  Point "226":
+    Color: ['59', '32', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.665576182091', '-0.122222235413', '2.01783280194']
+  Point "227":
+    Color: ['61', '33', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05117299721', '-0.286684829288', '2.02488458484']
+  Point "228":
+    Color: ['88', '60', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['0.765141890413', '-0.557845099539', '1.9874993265']
+  Point "229":
+    Color: ['69', '45', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.656658077436', '-0.117467025521', '2.01740035337']
+  Point "230":
+    Color: ['86', '60', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.744647608655', '-0.542595306893', '1.9897509938']
+  Point "231":
+    Color: ['53', '32', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.770500595738', '-0.462416264094', '2.01441799994']
+  Point "232":
+    Color: ['92', '62', '59']
+    Reprojection Error: 0.05
+    Coordinates: ['0.907891863501', '-0.304628640538', '2.05472069648']
+  Point "233":
+    Color: ['39', '20', '19']
+    Reprojection Error: 0.05
+    Coordinates: ['0.88577652153', '-0.520020627224', '1.99650825261']
+  Point "234":
+    Color: ['68', '40', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.738946539753', '-0.569006238294', '1.98804710857']
+  Point "235":
+    Color: ['57', '32', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.716476479832', '-0.539089545183', '1.991699389']
+  Point "236":
+    Color: ['55', '33', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10017379434', '-0.306267191936', '2.01947273134']
+  Point "237":
+    Color: ['44', '20', '15']
+    Reprojection Error: 0.05
+    Coordinates: ['0.72229214267', '-0.410828633803', '2.01687038125']
+  Point "238":
+    Color: ['69', '48', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06431597764', '-0.136976072497', '2.02555476986']
+  Point "239":
+    Color: ['69', '48', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06431597764', '-0.136976072497', '2.02555476986']
+  Point "240":
+    Color: ['54', '25', '22']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08604147996', '-0.166488595449', '2.0221106978']
+  Point "241":
+    Color: ['81', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.911411625312', '-0.557819414209', '1.98479514163']
+  Point "242":
+    Color: ['65', '36', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.993259526125', '-0.57235842674', '1.98453605749']
+  Point "243":
+    Color: ['50', '22', '18']
+    Reprojection Error: 0.05
+    Coordinates: ['0.719133569025', '-0.15956924402', '2.0197654745']
+  Point "244":
+    Color: ['58', '29', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.982876233026', '-0.161275265277', '2.03352493581']
+  Point "245":
+    Color: ['91', '69', '70']
+    Reprojection Error: 0.05
+    Coordinates: ['0.751832121129', '0.360407685984', '1.60416152482']
+  Point "246":
+    Color: ['57', '30', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['1.07917949688', '-0.0967289252268', '2.03230521856']
+  Point "247":
+    Color: ['57', '30', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['1.07917949688', '-0.0967289252268', '2.03230521856']
+  Point "248":
+    Color: ['107', '75', '70']
+    Reprojection Error: 0.05
+    Coordinates: ['0.92878189481', '-0.60125065553', '1.98160693043']
+  Point "249":
+    Color: ['36', '18', '18']
+    Reprojection Error: 0.05
+    Coordinates: ['0.892272331283', '-0.48664625296', '2.01186458803']
+  Point "250":
+    Color: ['33', '21', '21']
+    Reprojection Error: 0.05
+    Coordinates: ['0.988749980278', '0.0111243433844', '2.06831040744']
+  Point "251":
+    Color: ['65', '45', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.636974364835', '-0.311237685886', '2.01641892473']
+  Point "252":
+    Color: ['34', '20', '20']
+    Reprojection Error: 0.05
+    Coordinates: ['0.755952974189', '0.0431726308374', '2.07848362943']
+  Point "253":
+    Color: ['36', '23', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.895463061909', '-0.495942934787', '2.00552477447']
+  Point "254":
+    Color: ['50', '30', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12548335845', '-0.072380344713', '2.0405108236']
+  Point "255":
+    Color: ['77', '55', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0926302198', '-0.34152095267', '2.02149369825']
+  Point "256":
+    Color: ['73', '49', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.940690953729', '-0.582250944323', '1.98099909568']
+  Point "257":
+    Color: ['49', '33', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.780302446228', '-0.416154102422', '2.03143394441']
+  Point "258":
+    Color: ['83', '51', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.77248387144', '-0.159072773417', '2.0290213117']
+  Point "259":
+    Color: ['83', '51', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.77248387144', '-0.159072773417', '2.0290213117']
+  Point "260":
+    Color: ['107', '86', '85']
+    Reprojection Error: 0.05
+    Coordinates: ['0.787749024507', '0.390411332554', '1.60048089606']
+  Point "261":
+    Color: ['58', '37', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.832900840443', '-0.130926216107', '2.03967561513']
+  Point "262":
+    Color: ['57', '33', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.672689248631', '-0.0991618605627', '2.02709357922']
+  Point "263":
+    Color: ['42', '24', '24']
+    Reprojection Error: 0.05
+    Coordinates: ['0.950457263311', '-0.478386767', '2.01022483038']
+  Point "264":
+    Color: ['46', '28', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.991984883523', '-0.0267488545696', '2.05563304028']
+  Point "265":
+    Color: ['57', '30', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.992122574005', '-0.505350368332', '2.00034454563']
+  Point "266":
+    Color: ['48', '28', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.900621073669', '-0.0508609406504', '2.0499236171']
+  Point "267":
+    Color: ['51', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.933225458142', '-0.546659818323', '1.98816432077']
+  Point "268":
+    Color: ['66', '37', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.745773619103', '-0.139742682286', '2.02268813395']
+  Point "269":
+    Color: ['70', '51', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.633278408772', '-0.18787822389', '2.01104022784']
+  Point "270":
+    Color: ['55', '34', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.691871994482', '-0.451572308782', '2.00347868589']
+  Point "271":
+    Color: ['37', '21', '21']
+    Reprojection Error: 0.05
+    Coordinates: ['0.845730033791', '-0.459478251847', '2.0208519097']
+  Point "272":
+    Color: ['41', '25', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.838826711724', '-0.501496178314', '2.00110229794']
+  Point "273":
+    Color: ['36', '22', '22']
+    Reprojection Error: 0.05
+    Coordinates: ['0.724665754002', '0.0541087657931', '2.08039338885']
+  Point "274":
+    Color: ['58', '38', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.745099996015', '-0.516119678675', '1.99489091113']
+  Point "275":
+    Color: ['68', '48', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.767627626301', '-0.248224005492', '2.03822070084']
+  Point "276":
+    Color: ['68', '48', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.767627626301', '-0.248224005492', '2.03822070084']
+  Point "277":
+    Color: ['112', '87', '88']
+    Reprojection Error: 0.05
+    Coordinates: ['0.80426095816', '0.378008126587', '1.60622423102']
+  Point "278":
+    Color: ['85', '73', '70']
+    Reprojection Error: 0.05
+    Coordinates: ['0.903884527264', '0.367377753732', '1.61025582599']
+  Point "279":
+    Color: ['66', '43', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.739362728487', '-0.432934188144', '2.01510761003']
+  Point "280":
+    Color: ['82', '51', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.762773354797', '-0.327940747827', '2.03512599425']
+  Point "281":
+    Color: ['63', '42', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.63641253409', '-0.179593048672', '2.01305291396']
+  Point "282":
+    Color: ['82', '54', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.733080280048', '-0.342481284921', '2.02819402521']
+  Point "283":
+    Color: ['82', '54', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.733080280048', '-0.342481284921', '2.02819402521']
+  Point "284":
+    Color: ['55', '34', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.993836437192', '-0.00948114571656', '2.05309926822']
+  Point "285":
+    Color: ['56', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.84517962133', '-0.0902580404425', '2.04263064004']
+  Point "286":
+    Color: ['72', '41', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['0.932410569971', '-0.115149200954', '2.0425963348']
+  Point "287":
+    Color: ['49', '34', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.972412567539', '-0.439526367951', '2.02584312801']
+  Point "288":
+    Color: ['44', '25', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.694360547698', '-0.0172754004472', '2.04784190265']
+  Point "289":
+    Color: ['46', '27', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['0.891840116352', '-0.0287331924793', '2.05461868398']
+  Point "290":
+    Color: ['70', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.869007514316', '-0.55354081129', '1.98232969544']
+  Point "291":
+    Color: ['60', '35', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['1.14165983209', '-0.0809656451362', '2.04756569335']
+  Point "292":
+    Color: ['77', '46', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.741252823882', '-0.126350860311', '2.02633566826']
+  Point "293":
+    Color: ['64', '43', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.848234524605', '-0.337898911152', '2.05504949161']
+  Point "294":
+    Color: ['67', '40', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.989558422609', '-0.147172214143', '2.03221549583']
+  Point "295":
+    Color: ['63', '44', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.900102918215', '-0.530189600726', '1.99162474058']
+  Point "296":
+    Color: ['58', '37', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.707270017698', '-0.499912976666', '1.99517868066']
+  Point "297":
+    Color: ['66', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.693127144052', '-0.197732513325', '2.01553455324']
+  Point "298":
+    Color: ['55', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.957895188892', '-0.381158728227', '2.04159210896']
+  Point "299":
+    Color: ['84', '54', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03650752794', '-0.16780849422', '2.02874482365']
+  Point "300":
+    Color: ['99', '79', '72']
+    Reprojection Error: 0.05
+    Coordinates: ['0.9118903101', '0.388744604221', '1.59883302203']
+  Point "301":
+    Color: ['91', '58', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['0.64213342063', '-0.320748526302', '2.0132299127']
+  Point "302":
+    Color: ['99', '76', '68']
+    Reprojection Error: 0.05
+    Coordinates: ['0.955767965217', '-0.629293843275', '1.98768286612']
+  Point "303":
+    Color: ['75', '47', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.975780491998', '-0.0882960422937', '2.03964052682']
+  Point "304":
+    Color: ['46', '28', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.939742651846', '-0.0259777113706', '2.05365218401']
+  Point "305":
+    Color: ['71', '47', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.935775612048', '-0.209648173285', '2.03980247906']
+  Point "306":
+    Color: ['74', '50', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05302081492', '-0.404600775535', '2.01671807896']
+  Point "307":
+    Color: ['74', '50', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05302081492', '-0.404600775535', '2.01671807896']
+  Point "308":
+    Color: ['64', '35', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.627357398136', '-0.257702401972', '2.01435901228']
+  Point "309":
+    Color: ['66', '38', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.89530898169', '-0.0431382201026', '2.04925144541']
+  Point "310":
+    Color: ['62', '41', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.954162085058', '-0.131995294008', '2.04023282641']
+  Point "311":
+    Color: ['83', '55', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['0.960481936271', '0.400633232884', '1.59637400689']
+  Point "312":
+    Color: ['60', '36', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.698546447054', '-0.389344096211', '2.01666916454']
+  Point "313":
+    Color: ['87', '63', '59']
+    Reprojection Error: 0.05
+    Coordinates: ['0.795940618913', '-0.616584074964', '1.98261263213']
+  Point "314":
+    Color: ['100', '71', '66']
+    Reprojection Error: 0.05
+    Coordinates: ['0.979928808986', '-0.585058545941', '1.98221607159']
+  Point "315":
+    Color: ['100', '71', '66']
+    Reprojection Error: 0.05
+    Coordinates: ['0.979928808986', '-0.585058545941', '1.98221607159']
+  Point "316":
+    Color: ['73', '54', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.843379437398', '-0.559651330793', '1.98424065209']
+  Point "317":
+    Color: ['75', '46', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.627647841005', '-0.115783445494', '2.01933380871']
+  Point "318":
+    Color: ['57', '37', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.688229554983', '-0.415781648387', '2.00748805197']
+  Point "319":
+    Color: ['73', '51', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.983972517775', '-0.227362212224', '2.03983372395']
+  Point "320":
+    Color: ['98', '74', '74']
+    Reprojection Error: 0.05
+    Coordinates: ['0.681459688893', '-0.592356744581', '1.99796074689']
+  Point "321":
+    Color: ['58', '38', '39']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00043059354', '-0.0280296642415', '2.05353435362']
+  Point "322":
+    Color: ['67', '46', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.837033358802', '0.417307588855', '1.59234696586']
+  Point "323":
+    Color: ['72', '46', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.747439575965', '-0.264965970673', '2.03442280926']
+  Point "324":
+    Color: ['72', '48', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.949931609662', '-0.384964112943', '2.04523604129']
+  Point "325":
+    Color: ['44', '27', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05316923387', '0.0345218408594', '2.0781704723']
+  Point "326":
+    Color: ['55', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.895512127962', '-0.398086155718', '2.04705663667']
+  Point "327":
+    Color: ['109', '78', '73']
+    Reprojection Error: 0.05
+    Coordinates: ['0.990079393176', '-0.593220363739', '1.98228078682']
+  Point "328":
+    Color: ['109', '78', '73']
+    Reprojection Error: 0.05
+    Coordinates: ['0.990079393176', '-0.593220363739', '1.98228078682']
+  Point "329":
+    Color: ['68', '45', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.743824913989', '-0.226418843167', '2.02600640859']
+  Point "330":
+    Color: ['61', '37', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.978924375338', '-0.536661934851', '1.9849737611']
+  Point "331":
+    Color: ['72', '42', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.651228575941', '-0.0922291699914', '2.02636509496']
+  Point "332":
+    Color: ['88', '56', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.988746621601', '-0.582794179463', '1.97801017285']
+  Point "333":
+    Color: ['75', '44', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.582819839678', '-0.166061762401', '2.02768105354']
+  Point "334":
+    Color: ['71', '43', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.668350857451', '-0.0902986972054', '2.02642069617']
+  Point "335":
+    Color: ['43', '27', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02273132253', '0.053809379523', '2.08690444593']
+  Point "336":
+    Color: ['55', '35', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05092460585', '-0.0334560107163', '2.05184986425']
+  Point "337":
+    Color: ['68', '44', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.900530745724', '-0.411772748562', '2.04452112278']
+  Point "338":
+    Color: ['52', '32', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.694743952945', '-0.0815103328743', '2.02686675305']
+  Point "339":
+    Color: ['50', '29', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02906552243', '-0.0921674238377', '2.033104755']
+  Point "340":
+    Color: ['92', '57', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['0.75027345595', '-0.247869952661', '2.03388606361']
+  Point "341":
+    Color: ['72', '46', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.726344468432', '-0.403113890082', '2.01761061907']
+  Point "342":
+    Color: ['48', '28', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.839737250919', '-0.523899145065', '1.99236183246']
+  Point "343":
+    Color: ['63', '39', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.980779166707', '-0.4604122813', '2.01751547085']
+  Point "344":
+    Color: ['44', '26', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.647074975876', '-0.0175044115427', '2.04530175642']
+  Point "345":
+    Color: ['76', '44', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.61992720612', '-0.448384501743', '2.01660341299']
+  Point "346":
+    Color: ['57', '38', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.793241572134', '-0.55330588147', '1.98488404098']
+  Point "347":
+    Color: ['55', '30', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.640526159054', '-0.0787459672993', '2.02684136378']
+  Point "348":
+    Color: ['70', '49', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00976538006', '-0.252351242762', '2.03557799584']
+  Point "349":
+    Color: ['95', '61', '59']
+    Reprojection Error: 0.05
+    Coordinates: ['0.713658248082', '-0.162626488028', '2.01681195369']
+  Point "350":
+    Color: ['71', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.742724922651', '-0.127586271207', '2.02730363514']
+  Point "351":
+    Color: ['86', '57', '62']
+    Reprojection Error: 0.05
+    Coordinates: ['0.603958150063', '-0.303356142539', '2.02501861143']
+  Point "352":
+    Color: ['77', '48', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08033632927', '-0.11717813857', '2.02842452183']
+  Point "353":
+    Color: ['70', '46', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.709926001288', '-0.0980982300994', '2.02537135737']
+  Point "354":
+    Color: ['76', '48', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.704291078245', '-0.219512479939', '2.01418173169']
+  Point "355":
+    Color: ['44', '24', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.932602892153', '-0.00943170460251', '2.06486552278']
+  Point "356":
+    Color: ['46', '26', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08581296027', '-0.0362123349632', '2.05089757335']
+  Point "357":
+    Color: ['37', '23', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.691235452513', '0.0388477474613', '2.07326670245']
+  Point "358":
+    Color: ['72', '48', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.867333889615', '-0.401636466034', '2.04655467756']
+  Point "359":
+    Color: ['87', '58', '54']
+    Reprojection Error: 0.05
+    Coordinates: ['0.718619901925', '-0.259286650435', '2.02706288686']
+  Point "360":
+    Color: ['82', '49', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.761407854734', '-0.109920813923', '2.03584014312']
+  Point "361":
+    Color: ['64', '43', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.943864010046', '-0.341017526648', '2.05259980885']
+  Point "362":
+    Color: ['59', '40', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.711418968228', '-0.431905930084', '2.01107498273']
+  Point "363":
+    Color: ['89', '58', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.960544271143', '-0.297151351239', '2.04767355712']
+  Point "364":
+    Color: ['74', '45', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.769538191003', '-0.535556770203', '1.98590839299']
+  Point "365":
+    Color: ['41', '25', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.82590756228', '0.0142874369036', '2.0749064002']
+  Point "366":
+    Color: ['43', '24', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.794907157295', '-0.478310656398', '2.01514063409']
+  Point "367":
+    Color: ['94', '63', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['0.697593403736', '-0.233188309628', '2.01673420424']
+  Point "368":
+    Color: ['92', '73', '66']
+    Reprojection Error: 0.05
+    Coordinates: ['0.813548305236', '0.406605613999', '1.5930511526']
+  Point "369":
+    Color: ['74', '45', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.612285001822', '-0.234791374478', '2.01308248702']
+  Point "370":
+    Color: ['105', '82', '78']
+    Reprojection Error: 0.05
+    Coordinates: ['0.959985719265', '0.386802386379', '1.6035847644']
+  Point "371":
+    Color: ['73', '44', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.72595458338', '-0.537757232109', '1.99243234322']
+  Point "372":
+    Color: ['106', '76', '68']
+    Reprojection Error: 0.05
+    Coordinates: ['0.877984423915', '-0.59940135823', '1.98121371988']
+  Point "373":
+    Color: ['45', '25', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10914619605', '-0.049449883076', '2.04971035075']
+  Point "374":
+    Color: ['61', '37', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.968318393696', '-0.549697518861', '1.98692669013']
+  Point "375":
+    Color: ['75', '54', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06155097707', '-0.469616213912', '2.0051143784']
+  Point "376":
+    Color: ['81', '60', '59']
+    Reprojection Error: 0.05
+    Coordinates: ['0.671018811352', '-0.563412610947', '1.999065472']
+  Point "377":
+    Color: ['71', '45', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['1.09908339696', '-0.0872555364506', '2.03493513422']
+  Point "378":
+    Color: ['87', '56', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06288850794', '-0.241083346575', '2.02084612759']
+  Point "379":
+    Color: ['65', '35', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.679979205596', '-0.532843686727', '1.99358426411']
+  Point "380":
+    Color: ['46', '28', '26']
+    Reprojection Error: 0.05
+    Coordinates: ['0.980057900339', '-0.499092387628', '2.00150695642']
+  Point "381":
+    Color: ['63', '42', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.911142872122', '-0.340380538505', '2.05436955379']
+  Point "382":
+    Color: ['82', '62', '63']
+    Reprojection Error: 0.05
+    Coordinates: ['0.756926008118', '0.378738469543', '1.6122826741']
+  Point "383":
+    Color: ['60', '39', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.875978497815', '-0.528553610648', '1.99449433672']
+  Point "384":
+    Color: ['38', '20', '20']
+    Reprojection Error: 0.05
+    Coordinates: ['0.918567017982', '0.0055332876077', '2.07383451028']
+  Point "385":
+    Color: ['55', '36', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.701612078036', '-0.00707896445876', '2.05601360151']
+  Point "386":
+    Color: ['87', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.643984454402', '-0.244705474829', '2.00929584165']
+  Point "387":
+    Color: ['62', '32', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01561821735', '-0.414511897625', '2.02541848656']
+  Point "388":
+    Color: ['79', '54', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['0.566475030144', '-0.120429911161', '2.03775246633']
+  Point "389":
+    Color: ['39', '23', '23']
+    Reprojection Error: 0.05
+    Coordinates: ['0.898726403038', '0.0192053837185', '2.07644819093']
+  Point "390":
+    Color: ['59', '34', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.59087211544', '-0.085083934892', '2.03438248277']
+  Point "391":
+    Color: ['75', '49', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.809219415698', '-0.0910255658608', '2.03763044519']
+  Point "392":
+    Color: ['71', '47', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03214020695', '-0.0852981123991', '2.03550793602']
+  Point "393":
+    Color: ['70', '42', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0807566899', '-0.439971409635', '2.00760718885']
+  Point "394":
+    Color: ['40', '24', '24']
+    Reprojection Error: 0.05
+    Coordinates: ['0.708389626891', '-0.00367409093204', '2.05377333139']
+  Point "395":
+    Color: ['76', '47', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.884332127508', '-0.276222087774', '2.05234006916']
+  Point "396":
+    Color: ['80', '47', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.822639012551', '-0.164625245054', '2.03539557118']
+  Point "397":
+    Color: ['108', '77', '72']
+    Reprojection Error: 0.05
+    Coordinates: ['0.801837296831', '-0.599358203836', '1.98613096676']
+  Point "398":
+    Color: ['56', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['0.887324508758', '-0.483530033066', '2.0153624885']
+  Point "399":
+    Color: ['57', '37', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.804578200181', '-0.430292216353', '2.02851522203']
+  Point "400":
+    Color: ['90', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['1.07872582669', '-0.35441887927', '2.01903234835']
+  Point "401":
+    Color: ['98', '77', '76']
+    Reprojection Error: 0.05
+    Coordinates: ['0.724200984929', '0.356589916857', '1.63643234339']
+  Point "402":
+    Color: ['84', '64', '63']
+    Reprojection Error: 0.05
+    Coordinates: ['0.68906208003', '-0.590486045092', '1.99606410325']
+  Point "403":
+    Color: ['62', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02268681967', '-0.346095070599', '2.03278678328']
+  Point "404":
+    Color: ['53', '34', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.883164896988', '0.416023102772', '1.5943240172']
+  Point "405":
+    Color: ['53', '34', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.883164896988', '0.416023102772', '1.5943240172']
+  Point "406":
+    Color: ['85', '55', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['0.772828638755', '-0.287810328699', '2.04015852935']
+  Point "407":
+    Color: ['84', '51', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.889738097524', '-0.203405966852', '2.04397407674']
+  Point "408":
+    Color: ['61', '36', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.807455123083', '-0.28244448123', '2.04663395309']
+  Point "409":
+    Color: ['65', '44', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.799967564322', '-0.52432747256', '1.99248687132']
+  Point "410":
+    Color: ['67', '46', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.746136021634', '-0.347921069982', '2.03575083111']
+  Point "411":
+    Color: ['40', '25', '24']
+    Reprojection Error: 0.05
+    Coordinates: ['0.781779135206', '-0.46358687614', '2.01866131544']
+  Point "412":
+    Color: ['59', '39', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.744552081222', '-0.0989794462604', '2.02398449217']
+  Point "413":
+    Color: ['36', '22', '22']
+    Reprojection Error: 0.05
+    Coordinates: ['0.988770888081', '0.0134033652926', '2.05932371326']
+  Point "414":
+    Color: ['113', '93', '90']
+    Reprojection Error: 0.05
+    Coordinates: ['0.709032824401', '-0.626829116929', '2.00548514545']
+  Point "415":
+    Color: ['73', '52', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00598069568', '-0.575479154521', '1.98711552273']
+  Point "416":
+    Color: ['74', '54', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['1.11558082264', '-0.483849712195', '2.01368500707']
+  Point "417":
+    Color: ['69', '45', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12370282138', '-0.324908512544', '2.02452936172']
+  Point "418":
+    Color: ['69', '45', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12370282138', '-0.324908512544', '2.02452936172']
+  Point "419":
+    Color: ['66', '47', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.749650864742', '-0.572362489403', '1.99088794223']
+  Point "420":
+    Color: ['52', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.969568661068', '-0.0948656729094', '2.03284955321']
+  Point "421":
+    Color: ['65', '41', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.999906717253', '-0.198168208889', '2.03338438131']
+  Point "422":
+    Color: ['62', '41', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.847629531879', '-0.0525172697634', '2.04233504154']
+  Point "423":
+    Color: ['70', '41', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.895226158577', '-0.57249886862', '1.98601511327']
+  Point "424":
+    Color: ['82', '51', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['0.759184268075', '-0.304424042454', '2.03994109461']
+  Point "425":
+    Color: ['82', '54', '51']
+    Reprojection Error: 0.05
+    Coordinates: ['0.96813128057', '-0.216654418736', '2.03832820818']
+  Point "426":
+    Color: ['58', '37', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['1.00412568911', '-0.319327950371', '2.03757377562']
+  Point "427":
+    Color: ['70', '50', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.844697409414', '-0.583502654679', '1.9824322054']
+  Point "428":
+    Color: ['77', '49', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.974967018598', '-0.551657597134', '1.98298533349']
+  Point "429":
+    Color: ['53', '33', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['0.862666972872', '-0.43512530035', '2.03484619159']
+  Point "430":
+    Color: ['62', '41', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.970305265679', '-0.0568921691622', '2.04555376258']
+  Point "431":
+    Color: ['40', '24', '24']
+    Reprojection Error: 0.05
+    Coordinates: ['0.944045870311', '-0.516799718249', '1.99859063098']
+  Point "432":
+    Color: ['43', '28', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['1.09591365661', '0.063032205379', '2.08447383989']
+  Point "433":
+    Color: ['61', '40', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.864541883222', '-0.349144469673', '2.05473423256']
+  Point "434":
+    Color: ['38', '23', '20']
+    Reprojection Error: 0.05
+    Coordinates: ['0.819590886611', '-0.511958333835', '1.99918068904']
+  Point "435":
+    Color: ['67', '38', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.735946325488', '-0.0598411471128', '2.03330504568']
+  Point "436":
+    Color: ['73', '42', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.896292387099', '-0.327404821277', '2.05372153269']
+  Point "437":
+    Color: ['86', '55', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12219654359', '-0.311845270523', '2.02205799498']
+  Point "438":
+    Color: ['84', '51', '49']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08790444445', '-0.498493035357', '2.00498702101']
+  Point "439":
+    Color: ['63', '39', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08909432702', '-0.214840655379', '2.020108783']
+  Point "440":
+    Color: ['69', '45', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['0.883658590089', '-0.316416135401', '2.05653889707']
+  Point "441":
+    Color: ['80', '50', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.79188411101', '-0.164878521566', '2.0305641911']
+  Point "442":
+    Color: ['60', '36', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.71773117705', '-0.377966317249', '2.01927166283']
+  Point "443":
+    Color: ['87', '58', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.656068742034', '-0.230049634483', '2.0116299185']
+  Point "444":
+    Color: ['85', '57', '62']
+    Reprojection Error: 0.05
+    Coordinates: ['0.605142414162', '-0.229733581526', '2.01536716885']
+  Point "445":
+    Color: ['87', '64', '58']
+    Reprojection Error: 0.05
+    Coordinates: ['0.892579535501', '-0.62209576046', '1.98677891564']
+  Point "446":
+    Color: ['70', '46', '46']
+    Reprojection Error: 0.05
+    Coordinates: ['0.982189379876', '-0.0660331142585', '2.04484191']
+  Point "447":
+    Color: ['53', '32', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.793100037467', '-0.49610035019', '2.00136883491']
+  Point "448":
+    Color: ['79', '51', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['0.82235728584', '-0.131910092423', '2.0318292062']
+  Point "449":
+    Color: ['71', '42', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.852414642298', '-0.0854654660925', '2.03750995988']
+  Point "450":
+    Color: ['58', '38', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['0.895826962565', '-0.0424079781096', '2.0467538707']
+  Point "451":
+    Color: ['52', '32', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.834519646399', '-0.378277503729', '2.05033707337']
+  Point "452":
+    Color: ['52', '32', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.834519646399', '-0.378277503729', '2.05033707337']
+  Point "453":
+    Color: ['71', '40', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.622275594595', '-0.243110917464', '2.01429201538']
+  Point "454":
+    Color: ['69', '38', '36']
+    Reprojection Error: 0.05
+    Coordinates: ['0.862796559976', '-0.130271515353', '2.03750479818']
+  Point "455":
+    Color: ['68', '41', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.973886304765', '-0.532972734599', '1.98971267632']
+  Point "456":
+    Color: ['51', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.860575989125', '-0.539417987392', '1.99516552731']
+  Point "457":
+    Color: ['48', '26', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.861347253952', '-0.0497835757191', '2.0481909834']
+  Point "458":
+    Color: ['45', '27', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['0.862732800533', '-0.419444301984', '2.04346103206']
+  Point "459":
+    Color: ['60', '41', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['0.914291560642', '-0.552463763871', '1.98652246802']
+  Point "460":
+    Color: ['75', '51', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.860447828572', '-0.357444078895', '2.05223473144']
+  Point "461":
+    Color: ['81', '50', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.989104841798', '-0.584594965996', '1.98287229376']
+  Point "462":
+    Color: ['66', '45', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.668563017533', '-0.0901965758061', '2.01888032552']
+  Point "463":
+    Color: ['69', '39', '40']
+    Reprojection Error: 0.05
+    Coordinates: ['0.881410746283', '-0.142313163374', '2.0375740668']
+  Point "464":
+    Color: ['75', '50', '47']
+    Reprojection Error: 0.05
+    Coordinates: ['0.837211563062', '-0.537229043844', '1.9887621966']
+  Point "465":
+    Color: ['51', '33', '33']
+    Reprojection Error: 0.05
+    Coordinates: ['0.775755717078', '-0.0172965073838', '2.04264644022']
+  Point "466":
+    Color: ['51', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['1.02958995589', '-0.0915969562634', '2.0329808849']
+  Point "467":
+    Color: ['77', '47', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.802421485955', '-0.242982762499', '2.03913160775']
+  Point "468":
+    Color: ['89', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0201045178', '-0.241873890788', '2.03321179393']
+  Point "469":
+    Color: ['75', '47', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01701783558', '-0.118843450089', '2.03124342563']
+  Point "470":
+    Color: ['69', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.984929353155', '-0.53081843582', '1.99358184306']
+  Point "471":
+    Color: ['81', '53', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['0.824295720217', '-0.253979444342', '2.0453509943']
+  Point "472":
+    Color: ['85', '52', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['1.01175958077', '-0.596755367846', '1.99136281789']
+  Point "473":
+    Color: ['70', '49', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.698641270907', '-0.504404071365', '1.99977287259']
+  Point "474":
+    Color: ['84', '56', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['1.09353691004', '-0.371346388805', '2.01603939448']
+  Point "475":
+    Color: ['59', '37', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.656217169852', '-0.162305221765', '2.01057056139']
+  Point "476":
+    Color: ['64', '36', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10032776391', '-0.378492228173', '2.01850356213']
+  Point "477":
+    Color: ['74', '51', '45']
+    Reprojection Error: 0.05
+    Coordinates: ['0.720402156042', '-0.560912575476', '1.99370914476']
+  Point "478":
+    Color: ['53', '33', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05169657129', '-0.0448730160635', '2.04248605936']
+  Point "479":
+    Color: ['87', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['1.09593126476', '-0.413505479922', '2.01434930691']
+  Point "480":
+    Color: ['101', '66', '62']
+    Reprojection Error: 0.05
+    Coordinates: ['1.08516296872', '-0.564697882523', '2.00070204326']
+  Point "481":
+    Color: ['59', '38', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03858976982', '-0.0438187273122', '2.0434153262']
+  Point "482":
+    Color: ['70', '45', '41']
+    Reprojection Error: 0.05
+    Coordinates: ['1.0588635371', '-0.557423689786', '1.99257971365']
+  Point "483":
+    Color: ['41', '25', '25']
+    Reprojection Error: 0.05
+    Coordinates: ['1.06350086815', '-0.024622850545', '2.04660717211']
+  Point "484":
+    Color: ['74', '53', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.651182065527', '-0.546863193496', '2.00168008778']
+  Point "485":
+    Color: ['65', '41', '37']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10404362765', '-0.29665035825', '2.01877327247']
+  Point "486":
+    Color: ['50', '30', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.9207061917', '-0.531212636037', '1.997990534']
+  Point "487":
+    Color: ['85', '55', '57']
+    Reprojection Error: 0.05
+    Coordinates: ['0.64245456795', '-0.281578754722', '2.01124995308']
+  Point "488":
+    Color: ['62', '34', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['1.12592613101', '-0.142232077707', '2.02867411774']
+  Point "489":
+    Color: ['84', '54', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['0.804633200652', '-0.16624618862', '2.03365450887']
+  Point "490":
+    Color: ['83', '54', '56']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04733173276', '-0.183882231221', '2.02459969761']
+  Point "491":
+    Color: ['141', '126', '102']
+    Reprojection Error: 0.05
+    Coordinates: ['-0.484479037299', '-2.03415510588', '7.59339663533']
+  Point "492":
+    Color: ['68', '44', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['0.990499423191', '-0.40319814784', '2.03081918431']
+  Point "493":
+    Color: ['38', '20', '20']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05264227115', '-0.038246071224', '2.04416995925']
+  Point "494":
+    Color: ['62', '33', '35']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05214155395', '-0.251552572301', '2.02940698503']
+  Point "495":
+    Color: ['84', '56', '53']
+    Reprojection Error: 0.05
+    Coordinates: ['1.14150579129', '-0.289785325493', '2.02867718174']
+  Point "496":
+    Color: ['64', '39', '43']
+    Reprojection Error: 0.05
+    Coordinates: ['0.619092850481', '-0.283456034321', '2.01643860962']
+  Point "497":
+    Color: ['42', '18', '18']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05469602637', '-0.412811993934', '2.01446743194']
+  Point "498":
+    Color: ['70', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.917900892658', '-0.236058407988', '2.0473633822']
+  Point "499":
+    Color: ['70', '40', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['0.917900892658', '-0.236058407988', '2.0473633822']
+  Point "500":
+    Color: ['111', '81', '73']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10434843011', '-0.599062383379', '2.01638648072']
+  Point "501":
+    Color: ['84', '53', '50']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10256444463', '-0.384358804053', '2.01578705681']
+  Point "502":
+    Color: ['66', '42', '42']
+    Reprojection Error: 0.05
+    Coordinates: ['0.809488159417', '-0.090751811849', '2.03656766738']
+  Point "503":
+    Color: ['51', '31', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['0.954302694071', '-0.0661699603557', '2.04481693399']
+  Point "504":
+    Color: ['49', '31', '31']
+    Reprojection Error: 0.05
+    Coordinates: ['0.76236872743', '0.010057878777', '2.04739981058']
+  Point "505":
+    Color: ['48', '28', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04104298488', '-0.0499759888537', '2.04106682224']
+  Point "506":
+    Color: ['35', '15', '15']
+    Reprojection Error: 0.05
+    Coordinates: ['0.806666854932', '-0.0362641556615', '2.04259333966']
+  Point "507":
+    Color: ['88', '57', '55']
+    Reprojection Error: 0.05
+    Coordinates: ['0.704341292087', '-0.250025182094', '2.01920198729']
+  Point "508":
+    Color: ['95', '67', '63']
+    Reprojection Error: 0.05
+    Coordinates: ['0.708249742493', '-0.543301669436', '1.99420191719']
+  Point "509":
+    Color: ['57', '30', '27']
+    Reprojection Error: 0.05
+    Coordinates: ['1.05903226051', '-0.541807017944', '1.99460049379']
+  Point "510":
+    Color: ['43', '29', '29']
+    Reprojection Error: 0.05
+    Coordinates: ['0.848233083261', '0.00103578495358', '2.05341775296']
+  Point "511":
+    Color: ['56', '35', '34']
+    Reprojection Error: 0.05
+    Coordinates: ['1.1382619042', '-0.0933707483092', '2.0377718247']
+  Point "512":
+    Color: ['56', '34', '30']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03840572474', '-0.110589414467', '2.03353614345']
+  Point "513":
+    Color: ['79', '51', '48']
+    Reprojection Error: 0.05
+    Coordinates: ['1.10842140013', '-0.152399513244', '2.02728954812']
+  Point "514":
+    Color: ['69', '44', '44']
+    Reprojection Error: 0.05
+    Coordinates: ['1.03620536711', '-0.0995547960459', '2.03143629874']
+  Point "515":
+    Color: ['87', '58', '52']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04155711464', '-0.526521769989', '1.99789957186']
+  Point "516":
+    Color: ['63', '35', '32']
+    Reprojection Error: 0.05
+    Coordinates: ['1.04526457154', '-0.421954824859', '2.01583753977']
+  Point "517":
+    Color: ['60', '30', '28']
+    Reprojection Error: 0.05
+    Coordinates: ['0.687555601322', '-0.276758931101', '2.01752157471']
+  Point "518":
+    Color: ['59', '39', '38']
+    Reprojection Error: 0.05
+    Coordinates: ['1.13131500483', '-0.0449455567981', '2.04697877361']
+=============================>

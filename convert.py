@@ -47,3 +47,6 @@ if inputFile.endswith(".nvm"):
 	if verbose:
 		doNVMVerbose(inputFile, nvmObj)
 	from jsonClass import *
+	jsonObj = spliceNVM(inputFile, nvmObj)
+	if verbose:
+		doJsonVerbose(inputFile, jsonObj)

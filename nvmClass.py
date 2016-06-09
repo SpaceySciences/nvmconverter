@@ -237,7 +237,7 @@ def doNVMVerbose(inputFile, nvmObj):
 	parsedNvmFile = open(inputFile + ".txt", "w")
 
 	# json_file.write(json_str)
-	parsedNvmFile.write("===========VERBOSE===========>" + "\n")
+	parsedNvmFile.write("===========NVM===========>" + "\n")
 	parsedNvmFile.write("NVM Version: " + nvmObj.nvmVersion + "\n")
 	parsedNvmFile.write("NVM Calibration: " + nvmObj.nvmCalibration + "\n")
 	parsedNvmFile.write("Total number of models: " + str(nvmObj.numTotalModels) + "\n")

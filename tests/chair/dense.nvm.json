@@ -1,0 +1,65 @@
+		"shots": {
+			"2Uz323s.jpg": {
+				"orientation": 1,
+				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"gps_position": [
+					0.0,
+					0.0,
+					0.0
+				],
+				"gps_dop": 999999.0,
+				"rotation": [
+					0.0379419466682,
+					-0.156120201312,
+					-0.0429176541001
+				],
+				"translation": [
+					0.299201837806,
+					-0.0162340099777,
+					0.449517987581
+				],
+				"capture_time": 0.0
+			},
+			"Tz5HyB5.jpg": {
+				"orientation": 1,
+				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"gps_position": [
+					0.0,
+					0.0,
+					0.0
+				],
+				"gps_dop": 999999.0,
+				"rotation": [
+					0.0847142667746,
+					0.115724375489,
+					0.0745473099999
+				],
+				"translation": [
+					1.25178552333,
+					-0.318853428636,
+					0.417794498547
+				],
+				"capture_time": 0.0
+			},
+			"7QyUHRg.jpg": {
+				"orientation": 1,
+				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"gps_position": [
+					0.0,
+					0.0,
+					0.0
+				],
+				"gps_dop": 999999.0,
+				"rotation": [
+					0,
+					0,
+					0
+				],
+				"translation": [
+					0.852843666233,
+					0.150461431232,
+					-0.09283843867
+				],
+				"capture_time": 0.0
+			}
+		},

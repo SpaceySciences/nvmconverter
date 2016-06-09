@@ -1,4 +1,4 @@
-===========VERBOSE===========>
+===========NVM===========>
 NVM Version: NVM_V3
 NVM Calibration: 
 Total number of models: 1
