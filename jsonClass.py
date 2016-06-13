@@ -83,8 +83,6 @@ class JsonObject:
 		self.cameraArray = []
 		self.shotArray = []
 		self.pointArray = []
-		self.maxArray = [0, 0, 0]
-		self.minArray = [0, 0, 0]
 
 class CameraObject:
 	def __init__(self):
@@ -180,8 +178,6 @@ def spliceShots(jsonObj, nvmCamArray):
 		x += 1
 
 def splicePoints(jsonObj, nvmPointArray):
-	jsonObj.maxArray = [float(nvmPointArray[0].xyzArray[0]), float(nvmPointArray[0].xyzArray[1]), float(nvmPointArray[0].xyzArray[2])]
-	jsonObj.minArray = [float(nvmPointArray[0].xyzArray[0]), float(nvmPointArray[0].xyzArray[1]), float(nvmPointArray[0].xyzArray[2])]
 	x = 0
 	while x < jsonObj.numPointsTotal:
 		pointObj = PointObject()
@@ -192,34 +188,26 @@ def splicePoints(jsonObj, nvmPointArray):
 		pointObj.reprojectionError = "0.05"
 		#coordinates
 		pointObj.coordinates = nvmPointArray[x].xyzArray
-		#determining mins and maxes
-		temp = [float(pointObj.coordinates[0]), float(pointObj.coordinates[1]), float(pointObj.coordinates[2])]
-		y = 0
-		while y < 3:
-			jsonObj.maxArray[y] = max(jsonObj.maxArray[y], temp[y])
-			jsonObj.minArray[y] = min(jsonObj.minArray[y], temp[y])
-			y += 1
 		jsonObj.pointArray.append(pointObj)
 		x += 1
 
 def adjustFrame(jsonObj):
-	shiftFrame(jsonObj)
 	scaleFrame(jsonObj)
 	rotateFrame(jsonObj)
+	shiftFrame(jsonObj)
 
 def shiftFrame(jsonObj):
-	adjArray = [0.0, 0.0, 0.0]
-	print "max x " + str(jsonObj.maxArray[0])
-	print "min x " + str(jsonObj.minArray[0])
-	print "max y " + str(jsonObj.maxArray[1])
-	print "min y " + str(jsonObj.minArray[1])
-	print "min z " + str(jsonObj.minArray[2])
-	adjArray[0] = -(jsonObj.maxArray[0] + jsonObj.minArray[0]) / 2
-	adjArray[1] = -(jsonObj.maxArray[1] + jsonObj.minArray[1]) / 2
-	adjArray[2] = -jsonObj.minArray[2]
-	print "adding to x " + str(adjArray[0])
-	print "adding to y " + str(adjArray[1])
-	print "adding to z " + str(adjArray[2])
+	pntArr = jsonObj.pointArray
+	adjArray = [float(pntArr[0].coordinates[0]), float(pntArr[0].coordinates[1]), float(pntArr[0].coordinates[2])]
+	x = 0
+	while x < jsonObj.numPointsTotal:
+		adjArray[0] += float(pntArr[x].coordinates[0])
+		adjArray[1] += float(pntArr[x].coordinates[1])
+		adjArray[2] = min(adjArray[2], pntArr[x].coordinates[2])
+		x += 1
+	adjArray[0] /= -jsonObj.numPointsTotal
+	adjArray[1] /= -jsonObj.numPointsTotal
+	adjArray[2] = -adjArray[2]
 	#adjust shots
 	shotArr = jsonObj.shotArray
 	x = 0
@@ -231,7 +219,6 @@ def shiftFrame(jsonObj):
 			y += 1
 		x += 1
 	#adjust points
-	pntArr = jsonObj.pointArray
 	x = 0
 	while x < jsonObj.numPointsTotal:
 		y = 0
