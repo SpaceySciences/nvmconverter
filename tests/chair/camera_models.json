@@ -1,0 +1,13 @@
+{
+    "v2 unknown unknown -1 -1 perspective 0": {
+        "focal_prior": 0.85, 
+        "width": 2340, 
+        "k1": 0.0, 
+        "k2": 0.0, 
+        "k1_prior": 0.0, 
+        "k2_prior": 0.0, 
+        "projection_type": "perspective", 
+        "focal": 0.85, 
+        "height": 4160
+    }
+}
