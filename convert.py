@@ -9,44 +9,42 @@
 #
 
 import sys
-import json
-
-##code planning
-
-#files needed
-inputFile = ""
-outputFile = ""
+import os.path
 
 #argument bool list goes here
-verbose = False
+#argArray[0] is verbose
 
-#accept arguments
-if (len(sys.argv) == 2): # no argument, no specified output
-	inputFile = sys.argv[1]
-elif (len(sys.argv) == 3): # either with argument or specified output, not both
-	if (sys.argv[1] == "-v"): # yes verbose, no specified output
-		verbose = True
-		inputFile = sys.argv[2]
-	else: # no argument, yes specified output
-		inputFile = sys.argv[1]
-		outputFile = sys.argv[2]
-elif (len(sys.argv) == 4): # expected ONE argument AND specified output	
-	if (sys.argv[1] == "-v"): # yes verbose
-		verbose = True
-	inputFile = sys.argv[2]
-	outputFile = sys.argv[3]
-else: # no correct input syntax
-	print "USAGE: \n> ./convert.py <-arg> <input>.nvm\n> ./convert.py <-arg> <input>.nvm <output>.json"
-	input()
-	sys.exit(0)
+from arguments import *
+argArray = parseArguments()
 
+inputFile = ""
+outputFile = ""
+while True:
+	inputFile = raw_input("What file would you like to read from?\n--> ")
+	if (not os.path.isfile(inputFile)):
+		print "ERROR: File does not exist."
+	else: break
+while True:
+	outputFile = raw_input("What file would you like to write to?\n--> ")
+	if (not (outputFile.endswith('.nvm') or outputFile.endswith('.json')) ):
+		print "ERROR: File type not supported."
+	else: break
 #Converting from NVM to something else
 if inputFile.endswith(".nvm"):
-	from nvmClass import *
-	nvmObj = parseNVM(inputFile)
-	if verbose:
-		doNVMVerbose(inputFile, nvmObj)
-	from jsonClass import *
-	jsonObj = spliceNVM(inputFile, nvmObj)
-	if verbose:
-		doJsonVerbose(inputFile, jsonObj)
+	from readNvm import *
+	nvmObj = readNvm(inputFile)
+	if argArray[0]: #verbose
+		from verbose import doNvmVerbose
+		doNvmVerbose(inputFile, nvmObj)	
+if outputFile.endswith(".json"):
+	print "Converting to JSON for OpenSfM requires extra data that cannot be extracted from " + inputFile[inputFile.find('.'):] + " files."
+	while True:
+		cameraModelFile = raw_input("Please input the location of the `camera_models.json' file:\n--> ")
+		if (not os.path.isfile(cameraModelFile)):
+			print "ERROR: File does not exist."
+		else: break
+	from nvmToJson import *
+	jsonObj = convertNvmToJson(outputFile, cameraModelFile, nvmObj)
+	if argArray[0]: #verbose
+		from verbose import doJsonVerbose
+		doJsonVerbose(outputFile, jsonObj)

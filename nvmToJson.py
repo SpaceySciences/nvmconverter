@@ -69,75 +69,59 @@
 
 import sys
 import math
-#from nvmClass import *
+from jsonObject import *
 
 #adjusts points to display correctly in OpenSfM
 scaleFactor = 5
 
-class JsonObject:
-	def __init__(self):
-		#variables for json manipulation
-		self.numCamerasTotal = 1
-		self.numShotsTotal = 0
-		self.numPointsTotal = 0
-		self.cameraArray = []
-		self.shotArray = []
-		self.pointArray = []
-
-class CameraObject:
-	def __init__(self):
-		#variables that each camera has
-		self.name = ""
-		self.focalPrior = ""
-		self.width = ""
-		self.k1 = ""
-		self.k2 = ""
-		self.k1Prior = ""
-		self.k2Prior = ""
-		self.projectionType = ""
-		self.focal = ""
-		self.height = ""
-
-class ShotObject:
-	def __init__(self):
-		#variables that each shot has
-		self.name = ""
-		self.orientation = ""
-		self.camera = "" #should match a CameraObject
-		self.gpsPosition = ["", "", ""]
-		self.gpsDop = ""
-		self.rotation = ["", "", ""]
-		self.translation = ["", "", ""]
-		self.captureTime = ""
-
-class PointObject:
-	def __init__(self):
-		#variables that each point has
-		self.name = ""
-		self.color = ["", "", ""]
-		self.reprojectionError = ""
-		self.coordinates = ["", "", ""]
-
-#functions to splice NVM to JSON
-def spliceNVM(inputFile, nvmObj):
+#functions to convert NVM to JSON
+def convertNvmToJson(outputFile, cameraModelFile, nvmObj):
 	jsonObj = JsonObject()
 	#splicing NVM data into JSON
 	jsonObj.numShotsTotal = nvmObj.numCamerasTotal
 	jsonObj.numPointsTotal = nvmObj.numPointsTotal
+	readCameraData(open(cameraModelFile), jsonObj)
 	x = 0
 	while x < nvmObj.numTotalModels:
-		spliceModel(jsonObj, nvmObj.modelArray[x])
+		convertModel(jsonObj, nvmObj.modelArray[x])
 		x += 1
 	adjustFrame(jsonObj)
-	exportToJson(inputFile, jsonObj)
+	exportToJson(outputFile, cameraModelFile, jsonObj)
 	return jsonObj
 
-def spliceModel(jsonObj, nvmModel):
-	spliceCameras(jsonObj)
-	spliceShots(jsonObj, nvmModel.cameraArray)
-	splicePoints(jsonObj, nvmModel.pointArray)
+def readCameraData(f, jsonObj):
+	camObj = CameraObject()
+	f.readline() #read the `{'
+	line = f.readline().strip()
+	camObj.name = line[:len(line)-3]
+	line = f.readline().strip()
+	camObj.focalPrior = line[len(line)-5:len(line)-1]
+	line = f.readline().strip()
+	camObj.width = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.k1 = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.k2 = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.k1Prior = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.k2Prior = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.projectionType = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.focal = line[line.find(' ')+1:line.find(',')]
+	line = f.readline().strip()
+	camObj.height = line[line.find(' ')+1:]
+	jsonObj.cameraArray.append(camObj)
+	f.close()
 
-def spliceCameras(jsonObj):
+
+def convertModel(jsonObj, nvmModel):
+	convertCameras(jsonObj)
+	convertShots(jsonObj, nvmModel.cameraArray)
+	convertPoints(jsonObj, nvmModel.pointArray)
+
+def convertCameras(jsonObj):
 	x = 0
 	while x < jsonObj.numCamerasTotal:
 		camObj = CameraObject()
@@ -155,7 +139,7 @@ def spliceCameras(jsonObj):
 		x += 1
 
 #converts Cameras in NVM Model to Shots in JSON file
-def spliceShots(jsonObj, nvmCamArray):
+def convertShots(jsonObj, nvmCamArray):
 	x = 0
 	while x < jsonObj.numShotsTotal:
 		shotObj = ShotObject()
@@ -163,7 +147,7 @@ def spliceShots(jsonObj, nvmCamArray):
 		#orientation
 		shotObj.orientation = "1"
 		#camera name
-		shotObj.camera = "\"v2 unknown unknown -1 -1 perspective 0\""
+		shotObj.camera = jsonObj.cameraArray[0].name
 		#gps_position
 		shotObj.gpsPosition = ["0.0", "0.0", "0.0"]
 		#gps_dop
@@ -177,7 +161,7 @@ def spliceShots(jsonObj, nvmCamArray):
 		jsonObj.shotArray.append(shotObj)
 		x += 1
 
-def splicePoints(jsonObj, nvmPointArray):
+def convertPoints(jsonObj, nvmPointArray):
 	x = 0
 	while x < jsonObj.numPointsTotal:
 		pointObj = PointObject()
@@ -195,37 +179,6 @@ def adjustFrame(jsonObj):
 	scaleFrame(jsonObj)
 	rotateFrame(jsonObj)
 	shiftFrame(jsonObj)
-
-def shiftFrame(jsonObj):
-	pntArr = jsonObj.pointArray
-	adjArray = [float(pntArr[0].coordinates[0]), float(pntArr[0].coordinates[1]), float(pntArr[0].coordinates[2])]
-	x = 0
-	while x < jsonObj.numPointsTotal:
-		adjArray[0] += float(pntArr[x].coordinates[0])
-		adjArray[1] += float(pntArr[x].coordinates[1])
-		adjArray[2] = min(adjArray[2], pntArr[x].coordinates[2])
-		x += 1
-	adjArray[0] /= -jsonObj.numPointsTotal
-	adjArray[1] /= -jsonObj.numPointsTotal
-	adjArray[2] = -adjArray[2]
-	#adjust shots
-	shotArr = jsonObj.shotArray
-	x = 0
-	while x < jsonObj.numShotsTotal:
-		#adjust translation
-		y = 0
-		while y < 3:
-			shotArr[x].translation[y] = str(float(shotArr[x].translation[y]) + adjArray[y])
-			y += 1
-		x += 1
-	#adjust points
-	x = 0
-	while x < jsonObj.numPointsTotal:
-		y = 0
-		while y < 3:
-			pntArr[x].coordinates[y] = str(float(pntArr[x].coordinates[y]) + adjArray[y])
-			y += 1
-		x += 1
 
 def scaleFrame(jsonObj):
 	shotArr = jsonObj.shotArray
@@ -281,12 +234,63 @@ def rotateFrame(jsonObj):
 		pntArr[x].coordinates[2] = str(-temp)
 		x += 1
 
-def exportToJson(inputFile, jsonObj):
+
+def shiftFrame(jsonObj):
+	pntArr = jsonObj.pointArray
+	adjArray = [float(pntArr[0].coordinates[0]), float(pntArr[0].coordinates[1]), float(pntArr[0].coordinates[2])]
+	x = 0
+	while x < jsonObj.numPointsTotal:
+		adjArray[0] += float(pntArr[x].coordinates[0])
+		adjArray[1] += float(pntArr[x].coordinates[1])
+		adjArray[2] = min(adjArray[2], pntArr[x].coordinates[2])
+		x += 1
+	adjArray[0] /= -jsonObj.numPointsTotal
+	adjArray[1] /= -jsonObj.numPointsTotal
+	adjArray[2] = -adjArray[2]
+	#adjust shots
+	shotArr = jsonObj.shotArray
+	x = 0
+	while x < jsonObj.numShotsTotal:
+		#adjust translation
+		y = 0
+		while y < 3:
+			shotArr[x].translation[y] = str(float(shotArr[x].translation[y]) + adjArray[y])
+			y += 1
+		x += 1
+	#adjust points
+	x = 0
+	while x < jsonObj.numPointsTotal:
+		y = 0
+		while y < 3:
+			pntArr[x].coordinates[y] = str(float(pntArr[x].coordinates[y]) + adjArray[y])
+			y += 1
+		x += 1
+
+def exportToJson(outputName, cameraModelFile, jsonObj):
+	cameraString = exportCameraString(open(cameraModelFile), jsonObj)
 	shotString = exportShotString(jsonObj)
 	pointString = exportPointString(jsonObj)
-	outputFile = open(inputFile + ".json", "w")
-	outputFile.write(shotString + pointString)
+	outputFile = open(outputName, "w")
+	outputFile.write("[\n\t{\n" + cameraString + shotString + pointString + "\t}\n]")
 	outputFile.close()
+
+def exportCameraString(f, jsonObj):
+	cameraString = "\t\t\"cameras\": "
+	cameraString += f.readline()	#{
+	cameraString += "\t\t" + f.readline() #name
+	cameraString += "\t\t" + f.readline() #focal_prior
+	cameraString += "\t\t" + f.readline() #width
+	cameraString += "\t\t" + f.readline()	#k1
+	cameraString += "\t\t" + f.readline()	#k2
+	cameraString += "\t\t" + f.readline()	#k1_prior
+	cameraString += "\t\t" + f.readline() #k2_prior
+	cameraString += "\t\t" + f.readline()	#projection_type
+	cameraString += "\t\t" + f.readline()	#focal
+	cameraString += "\t\t" + f.readline() #height
+	cameraString += "\t\t" + f.readline() #}
+	cameraString += "\t\t" + f.readline() + ",\n"#}
+	f.close()
+	return cameraString
 
 def exportShotString(jsonObj): 
 	shotString = "\t\t\"shots\": {\n"
@@ -391,57 +395,5 @@ def exportPointString(jsonObj):
 		if (x < jsonObj.numPointsTotal-1): pointString += ","
 		pointString += "\n"
 		x += 1
-	pointString += "\t\t}"
+	pointString += "\t\t}\n"
 	return pointString
-
-def doJsonVerbose(inputFile, jsonObj):
-	parsedJsonFile = open(inputFile + ".json.txt", "w")
-
-	parsedJsonFile.write("===========JSON===========>" + "\n")
-	parsedJsonFile.write("Total number of Cameras: " + str(jsonObj.numCamerasTotal) + "\n")
-	parsedJsonFile.write("Total number of Shots: " + str(jsonObj.numShotsTotal) + "\n")
-	parsedJsonFile.write("Total number of Points: " + str(jsonObj.numPointsTotal) + "\n")
-	parsedJsonFile.write("\n")
-	parsedJsonFile.write("Cameras:" + "\n")
-	x = 0
-	camArr = jsonObj.cameraArray
-	while x < jsonObj.numCamerasTotal:
-		parsedJsonFile.write("  Name: " + camArr[x].name + "\n")
-		parsedJsonFile.write("  Focal Prior: " + camArr[x].focalPrior + "\n")
-		parsedJsonFile.write("  Width: " + camArr[x].width + "\n")
-		parsedJsonFile.write("  k1: " + camArr[x].k1 + "\n")
-		parsedJsonFile.write("  k2: " + camArr[x].k2 + "\n")
-		parsedJsonFile.write("  k1 Prior: " + camArr[x].k1Prior + "\n")
-		parsedJsonFile.write("  k2 Prior: " + camArr[x].k2Prior + "\n")
-		parsedJsonFile.write("  Projection Type: " + camArr[x].projectionType + "\n")
-		parsedJsonFile.write("  Focal: " + camArr[x].focal + "\n")
-		parsedJsonFile.write("  Height: " + camArr[x].height + "\n")
-		x += 1
-	parsedJsonFile.write("\n")
-	parsedJsonFile.write("Shots:" + "\n")
-	x = 0
-	shotArr = jsonObj.shotArray
-	while x < jsonObj.numShotsTotal:
-		parsedJsonFile.write("  Shot " + str(x+1) + ":" + "\n")
-		parsedJsonFile.write("    Name: " + shotArr[x].name + "\n")
-		parsedJsonFile.write("    Orientation: " + shotArr[x].orientation + "\n")
-		parsedJsonFile.write("    Camera: " + shotArr[x].camera + "\n")
-		parsedJsonFile.write("    GPS Position: " + str(shotArr[x].gpsPosition) + "\n")
-		parsedJsonFile.write("    GPS Dop: " + shotArr[x].gpsDop + "\n")
-		parsedJsonFile.write("    Rotation: " + str(shotArr[x].rotation) + "\n")
-		parsedJsonFile.write("    Translation: " + str(shotArr[x].translation) + "\n")
-		parsedJsonFile.write("    Capture Time: " + shotArr[x].captureTime + "\n")
-		x += 1
-	parsedJsonFile.write("\n")
-	parsedJsonFile.write("Points:" + "\n")
-	x = 0
-	pointArr = jsonObj.pointArray
-	while x < jsonObj.numPointsTotal:
-		parsedJsonFile.write("  Point " + pointArr[x].name + ":" + "\n")
-		parsedJsonFile.write("    Color: " + str(pointArr[x].color) + "\n")
-		parsedJsonFile.write("    Reprojection Error: " + str(pointArr[x].reprojectionError) + "\n")
-		parsedJsonFile.write("    Coordinates: " + str(pointArr[x].coordinates) + "\n")
-		x += 1
-
-	parsedJsonFile.write("=============================>" + "\n")
-	parsedJsonFile.close()

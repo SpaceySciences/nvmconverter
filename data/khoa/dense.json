@@ -1,7 +1,7 @@
 [
 	{
 		"cameras": {
-		    "v2 unknown unknown -1 -1 perspective 0": {
+		    "v2 lg electronics lgls990 4160 2340 perspective 0": {
 		        "focal_prior": 0.85, 
 		        "width": 4160, 
 		        "k1": 0.0, 
@@ -16,7 +16,7 @@
 		"shots": {
 			"20160603_150150.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
@@ -37,7 +37,7 @@
 			},
 			"20160603_150152.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
@@ -58,7 +58,7 @@
 			},
 			"20160603_150158.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
@@ -79,7 +79,7 @@
 			},
 			"20160603_150202.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
@@ -100,7 +100,7 @@
 			},
 			"20160603_150155.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
@@ -121,7 +121,7 @@
 			},
 			"20160603_150200.jpg": {
 				"orientation": 1,
-				"camera": "v2 unknown unknown -1 -1 perspective 0",
+				"camera": "v2 lg electronics lgls990 4160 2340 perspective 0",
 				"gps_position": [
 					0.0,
 					0.0,
