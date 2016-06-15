@@ -21,14 +21,21 @@ inputFile = ""
 outputFile = ""
 while True:
 	inputFile = raw_input("What file would you like to read from?\n--> ")
-	if (not os.path.isfile(inputFile)):
+	if (not inputFile.endswith(".nvm")):
+		print "ERROR: Import file type not supported."
+	elif (not os.path.isfile(inputFile)):
 		print "ERROR: File does not exist."
 	else: break
 while True:
 	outputFile = raw_input("What file would you like to write to?\n--> ")
-	if (not (outputFile.endswith('.nvm') or outputFile.endswith('.json')) ):
-		print "ERROR: File type not supported."
-	else: break
+	if (not outputFile.endswith(".json")):
+		print "ERROR: Export file type not supported."
+	elif (os.path.isfile(outputFile)):
+		answer = raw_input("WARNING: File already exists. Would you like to overwrite (yes/no)? ")
+		if (answer == "yes"):
+			break
+	else:
+		break
 #Converting from NVM to something else
 if inputFile.endswith(".nvm"):
 	from readNvm import *
@@ -42,7 +49,10 @@ if outputFile.endswith(".json"):
 		cameraModelFile = raw_input("Please input the location of the `camera_models.json' file:\n--> ")
 		if (not os.path.isfile(cameraModelFile)):
 			print "ERROR: File does not exist."
-		else: break
+		elif (not cameraModelFile.endswith("camera_models.json")):
+			print "ERROR: Incorrect file."
+		else: 
+			break
 	from nvmToJson import *
 	jsonObj = convertNvmToJson(outputFile, cameraModelFile, nvmObj)
 	if argArray[0]: #verbose
