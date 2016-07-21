@@ -1,5 +1,5 @@
-##outline of .nvm file
-#
+# #outline of .nvm file
+
 # NVM_V3 [optional calibration]						#file version header
 # <Number of cameras>
 # <File Name> <focal length> <quaternion WXYZ> <camera center> <radial distortion> 0
@@ -10,11 +10,11 @@
 # [optional blank line]
 # <Number of 3D points>
 # <XYZ> <RBG> <number of measurements> <Image index> <Feature Index> <xy> ... <Image index> < Feature Index> <xy>
-#
+
 # .
 # .
 # .
-#
+
 # <Number of cameras>
 # <File Name> <focal length> <quaternion WXYZ> <camera center> <radial distortion> 0
 # .
@@ -29,7 +29,7 @@
 # <PLY comments>
 # <number of PLY files>
 # <List of indices of models that have associated PLY>
-##
+# #
 
 ##########################################################
 
@@ -37,48 +37,7 @@
 #number of models, an array of PLY files, and the number of PLY files
 
 import sys
-
-class NvmObject:
-	def __init__(self):
-		#variables for nvm manipulation
-		self.nvmVersion = ""
-		self.nvmCalibration = ""
-		self.numCamerasTotal = 0
-		self.numPointsTotal = 0
-		self.modelArray = []
-		self.numFullModels = 0
-		self.numEmptyModels = 0
-		self.numTotalModels = 0
-		self.plyArray = []
-		self.numPlyFiles = 0
-
-class ModelObject:
-	def __init__(self):
-		self.numCameras = 0
-		self.cameraArray = [] # array of CameraObject s
-		self.numPoints = 0
-		self.pointArray = [] # array of PointObject s
-
-class CameraObject:
-	def __init__(self):
-		self.fileName = ""
-		self.focalLength = ""
-		self.quaternionArray = ["", "", "", ""]
-		self.cameraCenter = ["", "", ""]
-		self.radialDistortion = ""
-
-class PointObject:
-	def __init__(self):
-		self.xyzArray = ["", "", ""]
-		self.rgbArray = ["", "", ""]
-		self.numMeasurements = 0
-		self.measurementArray = [] # array of PointMeasurementObject s
-
-class PointMeasurementObject:
-	def __init__(self):
-		self.imageIndex = ""
-		self.featureIndex = ""
-		self.xyArray = ["", ""]
+from nvmObject import *
 
 #read through any blank or commented lines
 def skipBlankLines(f):
@@ -93,16 +52,16 @@ def skipBlankLines(f):
 	return line
 
 # functions for nvm manipulation
-def parseNVM(inputFile):
+def readNvm(inputFile):
 	nvmObject = NvmObject()
 	#extracting and parsing info from nvm file
 	with open(inputFile) as f:
-		parseVersion(f, nvmObject) # parsing the NVM version and configuration
-		parseModels(f, nvmObject) # parsing the Models from the NVM
-		#parsePLY(f, nvmObject) # parsing the PLY files from the NVM
+		readVersion(f, nvmObject) # parsing the NVM version and configuration
+		readModels(f, nvmObject) # parsing the Models from the NVM
+		#readPLY(f, nvmObject) # parsing the PLY files from the NVM
 	return nvmObject
 
-def parseVersion(f, nvmObject):
+def readVersion(f, nvmObject):
 	line = skipBlankLines(f)
 	#read in version (don't know how version will change input yet)
 	if (not (line.find(' ') == -1)): # there is more than one word
@@ -112,7 +71,7 @@ def parseVersion(f, nvmObject):
 	else: # there is only one word
 		nvmObject.nvmVersion = line
 
-def parseModels(f, nvmObject):
+def readModels(f, nvmObject):
 	# nvmObject has nvmVersion, nvmCalibration, numCamerasTotal, numPointsTotal, modelArray,
 		# numFullModels, numEmptyModels, numTotalModels, plyArray, numPlyFiles
 
@@ -128,20 +87,17 @@ def parseModels(f, nvmObject):
 		nvmObject.numTotalModels += 1
 		modelObject.numCameras = int(line[0:]) # read in number of cameras
 		nvmObject.numCamerasTotal += modelObject.numCameras
-		parseCameras(f, modelObject) # read in list of cameras
+		readCameras(f, modelObject) # read in list of cameras
 
 		line = skipBlankLines(f)
 		modelObject.numPoints = int(line[0:]) # read in number of 3D points
 		nvmObject.numPointsTotal += modelObject.numPoints
 		if modelObject.numPoints > 0: nvmObject.numFullModels += 1
 		else: nvmObject.numEmptyModels += 1
-		parsePoints(f, modelObject) # read in 3D point attributes
-
-	#z = raw_input("Finished parsing all NVM models! ")
-	print "Finished parsing all NVM models!"
+		readPoints(f, modelObject) # read in 3D point attributes
 	# end of while reading through all models
 
-def parseCameras(f, modelObject):
+def readCameras(f, modelObject):
 	# modelObject has numCameras, cameraArray, numPoints, pointArray
 	x = 0
 	while x < modelObject.numCameras: # reading in however many cameras are in this model
@@ -150,8 +106,8 @@ def parseCameras(f, modelObject):
 		line = skipBlankLines(f)
 		
 		#read in file name
-		cameraObj.fileName = line[0:line.find(' ')] # get each camera file location and store it
-		line = line[line.find(' ')+1:] # removing filename from temp reading line
+		cameraObj.fileName = line[0:line.find( '	')] # get each camera file location and store it #strange character
+		line = line[line.find( '	')+1:] # removing filename from temp reading line #strange character
 		line = line.strip()
 		#read in focal length
 		cameraObj.focalLength = line[0:line.find(' ')] # <focal length> --> one integer
@@ -174,7 +130,7 @@ def parseCameras(f, modelObject):
 		x += 1
 	#end of while x
 
-def parsePoints(f, modelObject):
+def readPoints(f, modelObject):
 	# modelObject has numCameras, cameraArray, numPoints, pointArray
 	x = 0
 	while x < modelObject.numPoints: # reading in however many cameras are in this model
@@ -229,73 +185,6 @@ def parsePoints(f, modelObject):
 		x += 1
 	#end of while reading through points
 
-#def parsePLY(f, nvmObject):
+#def readPLY(f, nvmObject):
 	#read in int for number of PLY files
 	#read in list of indices of models that have associated PLY
-
-def doNVMVerbose(inputFile, nvmObj):
-	parsedNvmFile = open(inputFile + ".txt", "w")
-
-	# json_file.write(json_str)
-	parsedNvmFile.write("===========VERBOSE===========>" + "\n")
-	parsedNvmFile.write("NVM Version: " + nvmObj.nvmVersion + "\n")
-	parsedNvmFile.write("NVM Calibration: " + nvmObj.nvmCalibration + "\n")
-	parsedNvmFile.write("Total number of models: " + str(nvmObj.numTotalModels) + "\n")
-	parsedNvmFile.write("Number of full models: " + str(nvmObj.numFullModels) + "\n")
-	parsedNvmFile.write("Number of empty models: " + str(nvmObj.numEmptyModels) + "\n")
-	parsedNvmFile.write("Total number of cameras: " + str(nvmObj.numCamerasTotal) + "\n")
-	parsedNvmFile.write("Total number of 3D points: " + str(nvmObj.numPointsTotal) + "\n")
-	parsedNvmFile.write("\n")
-	#parsedNvmFile.write(models
-	x = 0
-	modArr = nvmObj.modelArray
-	while x < nvmObj.numTotalModels:
-		parsedNvmFile.write("NVM Model " + str(x+1) + ":" + "\n")
-		parsedNvmFile.write("  Number of Cameras: " + str(modArr[x].numCameras) + "\n")
-		#parsedNvmFile.write(cameras
-		camArr = modArr[x].cameraArray
-		y = 0
-		while y < modArr[x].numCameras:
-			parsedNvmFile.write("    Camera " + str(y+1) + ":" + "\n")
-			parsedNvmFile.write("      File name: " + camArr[y].fileName + "\n")
-			parsedNvmFile.write("      Focal length: " + camArr[y].focalLength + "\n")
-			#quatArr = camArr[y].quaternionArray
-			parsedNvmFile.write("      Quaternion point: " + str(camArr[y].quaternionArray) + "\n")
-			parsedNvmFile.write("      Camera center: " + str(camArr[y].cameraCenter) + "\n")
-			parsedNvmFile.write("      Radial distortion: " + camArr[y].radialDistortion + "\n")
-
-			y += 1
-		#end while y
-		parsedNvmFile.write("  Number of 3D Points: " + str(nvmObj.modelArray[x].numPoints) + "\n")
-		#parsedNvmFile.write(points
-		pntArr = modArr[x].pointArray # has xyzArray, rgbArray, numMeasurments, measurementArray
-		y = 0
-		while y < modArr[x].numPoints:
-			parsedNvmFile.write("    Point " + str(y+1) + ":")
-			parsedNvmFile.write("      XYZ point: " + str(pntArr[y].xyzArray) + "\n")
-			parsedNvmFile.write("      RGB value: " + str(pntArr[y].rgbArray) + "\n")
-			parsedNvmFile.write("      Number of measurements: " + str(pntArr[y].numMeasurements) + "\n")
-			measArr = pntArr[y].measurementArray # has imageIndex, featureIndex, xyArray[]
-			z = 0
-			while z < pntArr[y].numMeasurements:
-				parsedNvmFile.write("        Measurement " + str(z+1) + ":" + "\n")
-				parsedNvmFile.write("          Image index: " + measArr[z].imageIndex + "\n")
-				parsedNvmFile.write("          Feature index: " + measArr[z].featureIndex + "\n")
-				parsedNvmFile.write("          XY point: " + str(measArr[z].xyArray) + "\n")
-				z += 1
-			#end while z
-			y += 1
-		#end while y
-		parsedNvmFile.write("\n")
-		x += 1
-	# end while parsedNvmFile.write(models
-
-	parsedNvmFile.write("Number of PLY Files: " + str(nvmObj.numPlyFiles) + "\n")
-	#parsedNvmFile.write(ply files
-	x = 0
-	while x < nvmObj.numPlyFiles:
-
-		x += 1
-	# end while parsedNvmFile.write(ply
-	parsedNvmFile.write("=============================>" + "\n")
-	parsedNvmFile.close()
